@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		$.ajax({
+			url:"http://localhost/jqajax/data/jqget.php",
+			data:{name:"admin"},
+			type:"POST",
+			beforeSend:function(){
+//				alert(1)
+			},
+			error:function(a,b,c){
+				console.log(a,b,c)
+			},
+			success:function(a,b,c){
+				console.log(a,b,c)
+			},
+			dataType:"json",
+//			timeout:0.0001,
+//			jsonp:"cb",
+			
+		})
+//		.then(function(a,b,c){
+//			console.log(a)
+//			console.log(b)
+//			console.log(c)
+//		},function(a,b,c){
+//			
+//		})
+		
+	</script>
+</html>

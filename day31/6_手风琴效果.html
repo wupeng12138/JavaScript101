@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			ul{width: 1180px;margin: 50px auto;}
+			ul li{width: 210px;float: left;overflow: hidden;}
+			ul li:first-child{width: 550px;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="http://pic.shejiben.com/hot_sjb/377_8180.jpg?1462261126"/></li>
+			<li><img src="http://pic.shejiben.com/hot_sjb/377_8288.jpg?1464830033"/></li>
+			<li><img src="http://pic.shejiben.com/hot_sjb/377_8155.jpg?1460709517"/></li>
+			<li><img src="http://pic.shejiben.com/hot_sjb/377_7937.jpg?1456984280"/></li>
+		</ul>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("li").mouseover(function(){
+			$(this).stop().animate({
+				width:550
+			}).siblings().stop().animate({
+				width:210
+			})
+		})
+	</script>
+</html>

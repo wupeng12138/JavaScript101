@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="register">
+		<h2>登陆</h2>
+		<p>账号:<input type="text" name="user"></p>
+		<p>密码:<input type="password" name="password"></p>
+		<p class="tip">提示: <span></span> </p>
+		<input type="button" value="确认登陆" id="login_btn">
+	</div>
+</body>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$("#login_btn").click(function(){
+		var userV = $("input[type=text]").val();
+		var passV = $("input[type=password]").val();
+		
+		$.ajax({
+			type:"POST",
+			url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+			data:{
+				status:"login",
+				userID:userV,
+				password:passV
+			},
+//			dataType:"json"
+		}).success(function(res){
+			switch(res){
+				case 0:
+					console.log("用户名和密码不一致");break;
+				case 2:
+					console.log("用户名不存在");break;
+				default:
+					res = JSON.parse(res);
+			}
+			
+			
+			
+		})
+		
+	})
+</script>
+</html>

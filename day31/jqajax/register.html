@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="register">
+		<h2>注册</h2>
+		<p>账号:<input type="text" name="user"></p>
+		<p>密码:<input type="password" name="password"></p>
+		<p class="tip">提示: <span></span> </p>
+		<input type="button" value="确认注册" id="reg_btn">
+	</div>
+</body>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$("#reg_btn").click(function(){
+		var userV = $("input[type=text]").val();
+		var passV = $("input[type=password]").val();
+		
+		
+		$.ajax({
+			type:"POST",
+			url:"http://datainfo.duapp.com/shopdata/use123rinfo.php",
+			data:{
+				status:"register",
+				userID:userV,
+				password:passV
+			},
+			success:function(res){
+				console.log(res);
+			},
+			error:function(xhl,status,data){
+				console.error("请求错误，错误代码为"+status+",请重新刷新页面")
+			}
+		});
+	})
+</script>
+</html>

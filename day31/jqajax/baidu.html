@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=html&json=1&p=3&sid=22084_1436_13548_21120_22036_22073&req=2&csor=0";
+		
+		$.ajax({
+			url:url,
+			jsonp:"cb",
+			dataType:"jsonp",
+			timeout:70,
+			error:function(a,b,c){
+				console.log(a,b,c)
+			}
+		}).then(function(a,b,c){
+			console.log(a)
+		})
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li ul{display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("span").click(function(){
+			$(this).parent().find("ul").stop().toggle(400).parent().siblings().find("ul").stop().hide(500)
+		})
+//		$("span").mouseout(function(){
+//			$(this).parent().parent().find("ul").stop().hide(500);
+//		})
+	</script>
+</html>
