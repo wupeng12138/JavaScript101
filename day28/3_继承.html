@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		继承:子承父业;授权使用
+//		子承父业call/apply
+		
+		
+//		function Father(){
+//			this.skill = "打铁";
+//			this.show = function(){
+//				alert("我是父亲，我会"+this.skill);
+//			}
+//		}
+//		var father = new Father();
+//		father.show();
+//		写法一:(在son中改变son的this，指向father)
+//		function Son(){
+//			this.show = function(){
+//				alert("我是孩子，我会"+this.skill);
+//			}.call(new Father());
+//		}
+//		var son = new Son();
+//		son.show()
+//		function Son(){
+//			this.show = function(){
+//				alert("我是孩子，我会"+this.skill);
+//			}.apply(new Father());
+//		}
+//		var son = new Son();
+//		son.show()
+
+
+
+//		function Father(fskill){
+//			this.skill = fskill;
+//			this.show = function(){
+//				alert("我会"+this.skill);
+//			}
+//		}
+//		var father = new Father("绝世铁匠");
+//		father.show();
+//		写法二:（在son中将son的this传到father内，改变fater的this指向，让father指向son）
+//		function Son(){
+//			Father.call(this,sskill)
+//		}
+//		var son = new Son("新手铁匠");
+//		son.show()
+//		function Son(sskill){
+//			Father.apply(this,arguments);
+//		}
+//		var son = new Son("新手铁匠");
+//		son.show()
+	</script>
+</html>

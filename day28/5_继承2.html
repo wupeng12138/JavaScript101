@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		授权使用
+//		function Father(){
+//		}
+//		Father.prototype.skill = "绝世厨师";
+//		Father.prototype.show = function(){
+//			alert(this.skill)
+//		};
+//		var father = new Father()
+////		father.show()
+//		
+//		function Son(){}
+//		
+//		Son.prototype = new Father();
+//		
+//		console.log(Son.prototype)
+////		console.log(new Father())
+//		var son = new Son();
+//		son.show = function(){
+//			alert(123)
+//		}
+//		son.show()
+//		console.log(son)
+
+		
+//		原型链继承/授权继承
+		function Father(){
+			this.skill = "绝世厨师";
+		}
+		Father.prototype.show = function(){
+			alert(this.skill)
+		};
+		
+		function Son(){
+			Father.call(this)
+		}
+		
+		//对象的深浅拷贝
+//		Son.prototype = Father.prototype;
+		for(var i in Father.prototype){
+			Son.prototype[i] = Father.prototype[i]
+		}
+		
+		Son.prototype.show = function(){
+			alert("放5两肉的绝世厨师")
+		}
+		
+		var father = new Father()
+		father.show()
+		
+		var son = new Son();
+		son.show()
+		
+	</script>
+</html>

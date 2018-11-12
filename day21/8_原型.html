@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		function Fn123(){
+//			this.name = "admin";
+//			this.show = function(){
+//				console.log(1)
+//			}
+//		}
+//		var fn = new Fn123();
+//		console.log(fn)
+//		console.log(fn.__proto__)
+//		console.log(typeof fn.__proto__)
+		
+//		原型：__proto__，[[proto]]，prototype			一根指针，指向父级类型
+//		原型的伴生物:
+//		constructor存储了当前对象的函数
+		
+//		var arr = new Array();
+//		arr.push("123")
+//		console.log(arr)
+
+//		function Fn(){
+//			this.name = "admin";
+//			this.show = function(){
+//				console.log(1)
+//			}
+//		}
+//		var a = new Fn();
+//		var b = new Fn();
+//		var c = new Fn();
+//		var d = new Fn();
+//		var e = new Fn();
+//		console.log(a.show == b.show)
+//		
+//		function Fn(){
+//			this.name = "admin";
+//		}
+//		Fn.prototype.show = function(){
+//			console.log(1)
+//		}
+//		var fn1 = new Fn();
+//		var fn2 = new Fn();
+//		console.log(fn1.show == fn2.show)
+
+//		var arr = new Array();
+//		arr.push("123");
+//		
+//		var arr2 = new Array();
+//		arr2.push();
+
+//		arr2.liyang = function(){
+//			console.log("hello")
+//		}
+//		arr2.liyang()
+//		
+//		arr.liyang();
+
+//		Array.prototype.liyang = function(){
+//			for(var i=0;i<this.length;i++){
+//				this[i] += 5;
+//			}
+//			return this;
+//		}
+		
+//		arr.liyang()
+//		arr2.liyang()
+		
+//		var arr3 = new Array(1,2,3,4)
+//		
+//		console.log(arr3.liyang())
+//		
+//		var arr = new Array(45,36,27,18)
+//		
+//		console.log(arr.liyang == arr3.liyang)
+
+//		任何通过当前构造函数创建出来的对象,都具有当前函数原型身上的方法
+		
+		function Fn(name){
+			this.name = name;
+		}
+		
+		Fn.prototype.show = function(){
+			 console.log(this.name)
+		}
+		
+		var a = new Fn("liyang")
+		a.show()
+		var b = new Fn("admin")
+		b.show()
+		
+		console.log(a.show == b.show)
+		
+		
+		
+		属性写在构造函数内
+		方法写在原型上
+	</script>
+</html>

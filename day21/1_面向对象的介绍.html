@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		我:销售额第一:
+//			市场:	地推			A:a1,a2,a3,a4
+//					地铁广告		B:b1,b2,b3
+//					公交广告		C:c1,c2
+//			销售:	大客户:企业	
+//					散户
+//			技术:	前端			
+//					后台			
+//					UI			
+//			人事:	招聘
+//					行政
+//			财务:	出纳
+//					会计
+		
+//		OO:面向对象
+		
+//		OOA:面向对象的分析:
+//			人类:
+//				销售:能说，销售类专业技能
+//				讲师:能说,技术类专业技能
+			
+			
+//			黑帮老大招小弟：
+//				没有特点的，机灵的，会看颜色，会点武术
+				
+//		OOD:面向对象的设计:
+//			说 = function(){console.log("说")};
+//			销售:说,额外的技能A
+//			讲师:说,额外的技能B
+//			var people = {
+//				show:function(){console.log("说")}
+//			}
+//			var 销售 = {
+//				skill1:"销售",
+//				show:people.show
+//			}
+//			var 讲师 = {
+//				skill1:"敲代码",
+//				show:people.show
+//			}
+//			销售.show()
+//			讲师.show()
+			
+//			小弟 的 培训
+//			每个细节都考虑到,但是要留一手
+//			流水线
+			
+//			高内聚
+//			低耦合
+//		OOP:面向对象的开发(编程):
+//			写代码
+			
+		
+//		选项卡切换
+//		OOA
+//			按钮,点击事件,index,根据index显示内容
+			
+//		OOD
+//			var abtn = document.querySelectorAll(".btn");
+			
+//			init
+			
+//			init：绑定事件----》changeindex
+			
+//			changeindex：拿到index,改变index----》display
+			
+//			display：根据index修改样式,显示内容
+			
+			
+//		OOP
+			var abtn = document.querySelectorAll(".btn");
+			
+			function init(){
+				for(){
+					abtn[i].onclick = function(){
+						changeindex(this)
+					}
+				}
+			}
+			
+			function changeindex(ele){
+				index = ele.index;
+				display(index)
+			}
+			
+			function display(index){
+				abtn[index].style.background = "red"
+				abox[index].style.display = "block"
+			}
+			
+			init()
+	</script>
+</html>

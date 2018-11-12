@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		面向对象
+//		对象
+//			var obj = {}
+			
+//			本质:键值对
+			
+//			作用:
+//				1.储存数据
+//				2.编程
+
+//			对象中的变量:属性
+//			对象中的函数:方法
+			
+//			变量和函数的组合
+		
+//		面向过程编程
+//		var name = "admin"
+//		var age = "20"
+//		var sex = 0
+//		var like = "ball"
+//		function show(){
+//			console.log(name,age,sex,like)
+//		}
+//		show()
+//		console.log(name)
+		
+//		面向对象编程
+//		var people = {
+//			name:"zhangsan",
+//			age:18,
+//			sex:1,
+//			like:"sing",
+//			show:function(){
+//				console.log(people.name,people.age);
+//			}
+//		}
+//		people.show()
+//		console.log(people.name)
+		
+//		面向对象编程
+//			1.对象
+//				var obj = {}
+//				var obj2 = Object();
+		
+		
+		
+//		面向对象的工厂模式
+//		function people(name,age,sex,like){
+//			var obj = {}
+//			
+//			obj.like = like;
+//			obj.sex = sex;			
+//			obj.name = name;
+//			obj.age = age;
+//			obj.show = function(){
+//				console.log(this.name,this.age,this.sex,this.like);
+//			};
+//			
+//			return obj;
+//		}
+//		
+//		var a = people("zhangsan",20,1,"球");
+//		var b = people("wanger",18,1,"翻墙");
+//		
+//		a.show()
+//		
+//		b.show()
+		
+		
+//		js废弃了
+//		function fn(name1,age1,sex1){
+//			var people = {}
+//			
+//			people.name = name1;
+//			people.aeg = age1;
+//			people.sex = sex1;
+//			people.like = like1;
+//			
+//			return people;
+//		}
+//		
+//		var a = fn("zhangsan",20,0);
+//		var b = fn("lisi",18,1);
+//		var c = fn("wanger",16,1);
+//		
+//		a.show()
+//		b.show()
+//		c.show()
+		
+//		构造函数创建对象
+//		js自带的工厂模式
+		function fn(name1,age1){
+			this.name = name1;
+			this.age = age1
+			this.show = function(){
+				console.log(this.name,this.age)
+			}
+		}
+		var a = new fn("liyang",18);
+		var b = new fn("zhangsan",20)
+		a.show()
+		b.show()
+	</script>
+</html>

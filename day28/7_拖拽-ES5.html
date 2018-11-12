@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box1{width: 100px;height: 100px;background: red;position: absolute;}
+			#box2{width: 100px;height: 100px;background: blue;position: absolute;left: 130px;}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+	</body>
+	<script type="text/javascript">
+		
+		function Drag(ele){
+			this.ele = ele;
+			this.clientW = document.documentElement.clientWidth;
+			this.clientH = document.documentElement.clientHeight;
+		}
+		Drag.prototype.init = function(){
+			var that = this;
+			this.ele.onmousedown = function(eve){
+				var e = eve || window.event;
+				that.disX = e.offsetX;
+				that.disY = e.offsetY;
+				
+				document.onmousemove = function(eve){
+					var e = eve || window.event;
+					that.move(e)
+				}
+				document.onmouseup = function(){
+					document.onmousemove = document.onmouseup = null;
+				}
+			}
+		}
+		Drag.prototype.move = function(e){
+			this.l = e.pageX - this.disX;
+			this.t = e.pageY - this.disY;
+			
+			this.ele.style.left = this.l + "px";
+			this.ele.style.top = this.t + "px";
+		}
+
+
+
+
+
+		function LimitDrag(ele){
+			Drag.call(this,ele);
+		}
+		for(var i in Drag.prototype){
+			LimitDrag.prototype[i] = Drag.prototype[i];
+		}
+		LimitDrag.prototype.move = function(e){
+			this.l = e.pageX - this.disX;
+			this.t = e.pageY - this.disY;
+			
+			if(this.l<0) this.l = 0;
+			if(this.t<0) this.t = 0;
+			if(this.l>this.clientW - this.ele.offsetWidth){
+				this.l=this.clientW - this.ele.offsetWidth
+			}
+			if(this.t>this.clientH - this.ele.offsetHeight){
+				this.t=this.clientH - this.ele.offsetHeight
+			}
+			
+			this.ele.style.left = this.l + "px";
+			this.ele.style.top = this.t + "px";
+		}
+		
+		var obox1 = document.getElementById("box1");
+		var obox2 = document.getElementById("box2");
+		
+		var a = new Drag(obox1);
+		a.init();
+		
+		var b = new LimitDrag(obox2);
+		b.init()
+	</script>
+</html>

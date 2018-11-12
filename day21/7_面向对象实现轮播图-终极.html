@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont1{width:1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			#imgbox1{height: 300px;position: absolute;left: 0px;top: 0;}
+			#imgbox1 img{float: left;width: 1130px;height: 300px;display: block;}
+		
+			#cont2{width:1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			#imgbox2{height: 300px;position: absolute;left: 0px;top: 0;}
+			#imgbox2 img{float: left;width: 1130px;height: 300px;display: block;}
+			
+			input{width: 60px;height: 60px;background: rgba(200,200,200,0.5);border: solid 1px #ccc;position: absolute;top: 120px;font-size: 30px;}
+			.next{right: 0;}
+			.prev{left: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="cont1">
+			<div id="imgbox1">
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01ca065abc4a0ea8012062e33cc8a5.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01cfd95ab9c887a8012062e3f25c14.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0181fe5ab9c863a801218207eb005a.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+			</div>
+			<input type="button" name="next" id="next1" class="next" value=">" />
+			<input type="button" name="prev" id="prev1" class="prev" value="<" />
+		</div>
+		<div id="cont2">
+			<div id="imgbox2">
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01ca065abc4a0ea8012062e33cc8a5.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01cfd95ab9c887a8012062e3f25c14.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0181fe5ab9c863a801218207eb005a.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+			</div>
+			<input type="button" name="next" id="next2" class="next" value=">" />
+			<input type="button" name="prev" id="prev2" class="prev" value="<" />
+		</div>
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		OOA
+//			设置图片框的尺寸，点击左右按钮的时候,获取当前要显示图片的索引,根据索引调整图片的显示
+//		OOD
+//		function Banner(){
+//			选元素,存属性
+//			init初始化页面,绑定点击事件
+//			changeindex根据点击的按钮,改变index(获取索引)
+//			move让图片运动
+//		}
+//		OOP
+		function Banner(img,options){
+			this.next = options.right;
+			this.prev = options.left;
+			this.imgbox = img[0].parentNode;
+			this.img = img;
+			this.index = 0;
+			this.init = function(){
+				var that = this;
+				this.imgbox.style.width = this.img.length*this.img[0].offsetWidth + "px";
+				this.prev.onclick = function(){
+					that.changeindex("1")
+				}
+				this.next.onclick = function(){
+					that.changeindex("2");
+				}
+			}
+			this.changeindex = function(drict){
+				if(drict == "1"){
+					if(this.index == 0){
+						this.index = this.img.length-2;
+						this.imgbox.style.left = -this.img[0].offsetWidth*(this.img.length-1)+"px";
+					}else{
+						this.index--;
+					}
+				}else{
+					if(this.index == this.img.length-1){
+						this.index = 1;
+						this.imgbox.style.left = "0";
+					}else{
+						this.index++
+					}
+				}
+				this.move();
+			}
+			this.move = function(){
+				move(this.imgbox,{"left":-this.img[0].offsetWidth * this.index})
+			}
+		}
+		
+		var onext1 = document.getElementById("next1");
+		var oprev1 = document.getElementById("prev1");
+		var oimgbox1 = document.getElementById("imgbox1");
+		var aimg1 = oimgbox1.children;
+		var banner1 = new Banner(aimg1,{"left":oprev1,"right":onext1})
+		banner1.init()
+		
+		var onext2 = document.getElementById("next2");
+		var oprev2 = document.getElementById("prev2");
+		var oimgbox2 = document.getElementById("imgbox2");
+		var aimg2 = oimgbox2.children;
+		var banner2 = new Banner(aimg2,{"left":oprev2,"right":onext2})
+		banner2.init()
+	</script>
+</html>

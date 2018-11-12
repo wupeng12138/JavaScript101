@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>link1</li>
+			<li>link2</li>
+			<li>link3</li>
+			<li>link4</li>
+			<li>link5</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		function fn(){
+//			var a = 10;
+//			return function(){
+//				a++;
+//				console.log(a);
+//			}
+//		}
+//		//自由或私有
+//		//闭包是一个环境
+//		var b = fn();
+//		b();
+//		b();
+//		b();
+		
+//		垃圾回收机制：
+//		function fn(){
+//			var a = 10;
+//			a++;
+//			console.log(a);
+//		}
+//		fn();
+//		fn();
+//		fn();
+
+//		var ali = document.querySelectorAll("li");
+//		for(var i=0;i<ali.length;i++){
+//			ali[i].onclick = (function(index){
+//				return function(){
+//					console.log(index)
+//				}
+//			})(i)
+//		}
+
+//		var ali = document.querySelectorAll("li");
+//		for(var i=0;i<ali.length;i++){
+//			(function(index){
+//				ali[index].onclick = function(){
+//					console.log(index)
+//				}
+//			})(i)
+//		}
+
+		function fn(){
+			var a = 10;
+			a++;
+			console.log(a)
+		}
+		fn()
+		fn()
+		fn()
+	</script>
+</html>

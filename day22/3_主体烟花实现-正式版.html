@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#container{
+				width: 80%;
+				height: 600px;
+				border: 2px solid red;
+				background: #000;
+				margin:20px auto;
+				cursor: pointer;
+				position: relative;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+			}
+			.fire{
+				width: 10px;
+				height:10px;
+				position: absolute;
+				bottom: 0;
+			}
+			.small-fire{
+				width: 10px;
+				height:10px;
+				position: absolute;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		OOA
+//			主体烟花
+//				选元素,绑定事件,创建元素,鼠标的最下方,开始运动,点击的位置,删除
+//			小烟花
+//				创建多个小烟花,点击的位置,运动,随机位置,删除
+//		OOD
+//			function Fire(){
+//				选元素存属性
+//			}
+//			init(){
+//				绑定事件,获取鼠标位置,
+//			}
+//			creatediv(){
+//				渲染位置(最下方,左右跟鼠标x轴),随机颜色
+//			}
+//			move(){
+//				运动到鼠标的y轴坐标
+//			}
+//			die(){
+//				删除元素
+//			}
+//		OOP
+		function Fire(main,eve){
+			this.cont = main;
+			this.pos = {
+				x:eve.offsetX,
+				y:eve.offsetY
+			}
+			this.div = null;
+			
+			this.init()
+		}
+		Fire.prototype.init = function(){
+			this.div = document.createElement("div");
+			this.div.className = "fire";
+			this.div.style.left = this.pos.x + "px";
+			this.div.style.background = this.randomColor();
+			this.cont.appendChild(this.div)
+			
+			this.move();
+		}
+		Fire.prototype.move = function(){
+			var that = this;
+			move(this.div,{"top":this.pos.y},function(){
+				that.div.remove()
+			})
+		}
+		
+		
+		
+		
+		
+		Fire.prototype.randomColor = function(){
+			var r = Math.round(Math.random()*255).toString(16);
+			var g = Math.round(Math.random()*255).toString(16);
+			var b = Math.round(Math.random()*255).toString(16);
+			return "#"+this.zero(r)+this.zero(g)+this.zero(b);
+		}
+		Fire.prototype.zero = function(n){
+			if(n.length<2){
+				return "0"+n;
+			}else{
+				return n;
+			}
+		}
+		
+		var ocont = document.getElementById("container");
+		ocont.onclick = function(eve){
+			var e = eve || window.event;
+			new Fire(this,e)
+		}
+	</script>
+</html>

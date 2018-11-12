@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0 ; 
+        padding: 0;
+        list-style-type: none;
+    }
+    .pagWarp{
+        height: 40px;
+        box-shadow: 0 2px 5px #b6b6b6;
+        position: absolute;
+        border-radius: 2px;
+        right: 42%;
+        top: 430px;
+    }
+    #btnL,#btnR{
+        line-height: 40px;
+        cursor: pointer;
+    }
+    #btnL{
+        float: left;
+    }
+    #btnR{
+        float: right;             
+    }
+    .pagWarp ul{        
+        height: 40px;
+        margin: 0 auto;
+        float: left;
+        text-align: center;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .pagWarp ul li{
+        float: left;
+        text-align: center;
+        line-height: 40px;
+        padding: 0 4px;
+    }
+    .active{
+        color: blue;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    /* 商品列表样式 */
+.list{
+    width: 80%;
+    margin: 20px auto;
+}
+.list:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.list li{
+    padding:2%;
+    width: 15%;
+    float: left;
+    height: 300px;
+    color: #666;
+    border-right: 1px solid #b6b6b6;
+      box-shadow: 2px 2px 5px #b6b6b6;  
+      margin-left: 8px;
+      margin-top: 20px;
+}
+.list li h2{
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+}
+.list .img{
+    width: 100%;
+    border: 1px solid #b6b6b6;
+    height: 180px;
+}
+.list input[type=button]{
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #b6b6b6;
+    width: 100px;
+    height: 80px;
+}
+</style>
+<body>
+	请选择一页显示的数据条数：<select name="" id="pageNum">
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+	</select>
+    <ul class="list" id="list">
+       
+    </ul>
+    <div class="pagWarp" id="pageWarp">
+        <span id="btnL">上一页</span>
+        <ul>
+        </ul>
+        <span id="btnR">下一页</span>
+    </div>
+</body>
+<script src="http://localhost/page/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//1.构造函数
+	function Page(ele,url,num){
+		this.left = ele.left;
+		this.right = ele.right;
+		this.list = ele.list;
+		this.page = ele.page;
+		this.url = url;
+		//请求到的数据
+		this.msg = null;
+		//页码的索引
+		this.index = 0;
+		//一页显示几条数据
+		this.num = parseInt(num);
+		//2.加载数据
+		this.load();
+	}
+	//2.加载数据的方法的定义
+	Page.prototype.load = function(){
+		var that = this;
+		getAjax("http://localhost/page/goods.json").then(function(res){
+			//3.将数据转格式之后，存到对象身上，供其他方法调用
+			that.msg = JSON.parse(res);
+			//4-1.绑定事件
+			that.init();
+			//4-2.生成页码
+			that.displayPage();
+			//7-1.页面加载完成也得显示一页数据
+			that.displayGoods();
+			//7-2.页面加载完成页码的第一项为当前项
+			that.pageActive();
+		})
+	}
+	//4-1.绑定事件方法的定义
+	Page.prototype.init = function(){
+		var that = this;
+		this.left.onclick = function(){
+			that.changeIndex(1);
+		}
+		this.right.onclick = function(){
+			that.changeIndex(2);
+		}
+	}
+	//5.改变索引
+	Page.prototype.changeIndex = function(direct){
+		if(direct == 1){
+			if(this.index == 0){
+				this.index = Math.ceil(this.msg.length/this.num)-1;
+			}else{
+				this.index --;
+			}
+		}else{
+			if(this.index == Math.ceil(this.msg.length/this.num)-1){
+				this.index = 0;
+			}else{
+				this.index++;
+			}
+		}
+		//6-1.根据索引渲染页面
+		this.displayGoods();
+		//6-2.渲染页码的当前项
+		this.pageActive();
+	}
+	//6-2.渲染页码的当前项方法定义
+	Page.prototype.pageActive = function(){
+		var ali = this.page.children;
+		for(var i=0;i<ali.length;i++){
+			ali[i].className = "";
+		}
+		ali[this.index].className = "active";
+	}
+	//4-2.生成页码的方法
+	Page.prototype.displayPage = function(){
+		this.page.innerHTML = "";
+		for(var i=0;i<Math.ceil(this.msg.length/this.num);i++){
+			var li = document.createElement("li");
+			li.innerHTML = i+1;
+			this.page.appendChild(li);
+		}
+	}
+	//6-1.根据索引渲染页面方法的定义
+	Page.prototype.displayGoods = function(){
+		var str = "";
+//		i=0		i~this.num+i		i++
+//				0~5
+//		i=2		i~this.num+i		i++
+//				5~10
+//		i=10	i~this.num+i		i++
+//				10~15
+		for(var i = this.num*this.index; i < this.num*this.index+this.num; i++){
+			if(i<this.msg.length){
+				str += `<li>
+					        <img src="${this.msg[i].url}" alt="" class="img">        
+					        <h2>商品名称:<span>${this.msg[i].name}</span></h2>
+					        <h2>商品介绍:<span>${this.msg[i].tip}</span></h2>
+					        <h2>商品价格:<span>${this.msg[i].price}</span></h2>
+			        	</li>`;
+			}
+		}
+		this.list.innerHTML = str;
+	}
+	
+	var oprev = document.getElementById("btnL");
+	var onext = document.getElementById("btnR");
+	var olist = document.getElementById("list");
+	var opage = document.getElementById("pageWarp").children[1];
+	var opageNum = document.getElementById("pageNum");
+	
+	//8.根据用户在页面上选择的数字，显示对应数量的数据
+	opageNum.onchange = function(){
+		new Page({
+			left:oprev,
+			right:onext,
+			list:olist,
+			page:opage
+		},"http://www.baidu.com",opageNum.value);
+	}
+	
+	
+	new Page({
+		left:oprev,
+		right:onext,
+		list:olist,
+		page:opage
+	},"http://www.baidu.com",opageNum.value);
+</script>
+</html>

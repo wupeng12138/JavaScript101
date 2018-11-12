@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#container{
+				width: 80%;
+				height: 600px;
+				border: 2px solid red;
+				background: #000;
+				margin:20px auto;
+				cursor: pointer;
+				position: relative;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+			}
+			.fire{
+				width: 10px;
+				height:10px;
+				position: absolute;
+				bottom: 0;
+			}
+			.small-fire{
+				width: 10px;
+				height:10px;
+				position: absolute;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function Fire(main,eve){
+			this.cont = main;
+			this.pos = {
+				x:eve.offsetX,
+				y:eve.offsetY
+			}
+			this.div = null;
+			
+			this.init()
+		}
+		Fire.prototype.init = function(){
+			this.div = document.createElement("div");
+			this.div.className = "fire";
+			this.div.style.left = this.pos.x + "px";
+			this.div.style.background = this.randomColor();
+			this.cont.appendChild(this.div)
+			
+			this.move();
+		}
+		Fire.prototype.move = function(){
+			var that = this;
+			move(this.div,{"top":this.pos.y},function(){
+				that.div.remove()
+				that.smallFire()
+			})
+		}
+		
+		Fire.prototype.smallFire = function(){
+			var num = Math.round(Math.random()*10+10);
+			for(var i=0;i<num;i++){
+				let div = document.createElement("div");
+				div.className = "small-fire";
+				div.setAttribute("data-id",i);
+				div.style.left = this.pos.x + "px";
+				div.style.top = this.pos.y + "px";
+				div.style.background = this.randomColor();
+				this.cont.appendChild(div);
+				
+				var l = this.random(100,(this.cont.offsetWidth-div.offsetWidth)-100);
+				var t = this.random(100,(this.cont.offsetHeight-div.offsetHeight)-100);
+				console.log(num)
+				console.log(l,t)
+				move(div,{"left":l,"top":t},function(){
+					div.remove()
+				})
+			}
+		}
+		
+		
+		
+		Fire.prototype.random = function(a,b){
+			return Math.round(Math.random()*(a-b)+b);
+		}
+		Fire.prototype.randomColor = function(){
+			var r = Math.round(Math.random()*255).toString(16);
+			var g = Math.round(Math.random()*255).toString(16);
+			var b = Math.round(Math.random()*255).toString(16);
+			return "#"+this.zero(r)+this.zero(g)+this.zero(b);
+		}
+		Fire.prototype.zero = function(n){
+			if(n.length<2){
+				return "0"+n;
+			}else{
+				return n;
+			}
+		}
+		
+		var ocont = document.getElementById("container");
+		ocont.onclick = function(eve){
+			var e = eve || window.event;
+			new Fire(this,e)
+		}
+	</script>
+</html>

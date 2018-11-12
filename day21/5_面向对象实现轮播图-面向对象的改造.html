@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{width:1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			#imgbox{height: 300px;position: absolute;left: 0px;top: 0;}
+			#imgbox img{float: left;width: 1130px;height: 300px;display: block;}
+			input{width: 60px;height: 60px;background: rgba(200,200,200,0.5);border: solid 1px #ccc;position: absolute;top: 120px;font-size: 30px;}
+			#next{right: 0;}
+			#prev{left: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div id="imgbox">
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01ca065abc4a0ea8012062e33cc8a5.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01cfd95ab9c887a8012062e3f25c14.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0181fe5ab9c863a801218207eb005a.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+			</div>
+			<input type="button" name="next" id="next" value=">" />
+			<input type="button" name="prev" id="prev" value="<" />
+		</div>
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		1.解除函数嵌套
+//		2.将所有的属性和方法放在构造函数中（内聚）------------------》一会要改
+//		4.确定耦合关系（谁在什么时候调用谁）
+//		3.添加this,修正this的指向
+//		4.调bug
+		
+		function Banner(){
+			this.oimgbox = document.getElementById("imgbox");
+			this.achild = this.oimgbox.children;
+			this.onext = document.getElementById("next");
+			this.oprev = document.getElementById("prev");
+			this.index = 0;
+			
+			this.init = function(){
+				this.oimgbox.style.width = this.achild.length*this.achild[0].offsetWidth + "px";
+				
+				var that = this;
+				this.onext.onclick = function(){
+					that.next();
+				}
+				this.oprev.onclick = function(){
+					that.prev();
+				}
+			}
+			
+			this.next = function(){
+				if(this.index == this.achild.length-1){
+					this.index = 1;
+					this.oimgbox.style.left = "0"
+				}else{
+					this.index ++;
+				}
+				this.move();
+			}
+			
+			this.prev = function(){
+				if(this.index == 0){
+					this.index = this.achild.length-2;
+					this.oimgbox.style.left = -this.achild[0].offsetWidth * (this.achild.length-1) + "px";
+				}else{
+					this.index--;
+				}
+				this.move();
+			}
+			
+			this.move = function(){
+				move(this.oimgbox,{"left":-this.achild[0].offsetWidth*this.index})
+			}
+		}
+		
+		var banner = new Banner();
+		banner.init();
+		
+	</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		function Fn(){
+//			this.name = "admin";
+//		}
+//		Fn.prototype.show = function(){
+//			console.log(this.name)
+//		}
+//		var a = new Fn();
+//		a.show()
+		
+//		class Fn{
+//			constructor(){
+////				属性,相当于老写法的构造函数内部
+//				this.name = "admin";
+//			}
+////			相当于绑定在了老写法的原型上
+//			show(){
+//				console.log(this.name)
+//			}
+//		}
+//		var a = new Fn();
+//		a.show()
+		
+		
+		class Father{
+			constructor(skill){
+				this.skill = skill;
+			}
+			show(){
+				alert(this.skill)
+			}
+		}
+		
+		class Son extends Father{
+			constructor(skill){
+				super(skill);
+			}
+			show(){
+				alert("1231212321")
+			}
+		}
+		
+		var f = new Father("绝世")
+		f.show();
+		
+		var s = new Son("一般")
+		s.show();
+	</script>
+</html>
