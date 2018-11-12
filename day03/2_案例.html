@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="year" value="" />
+		<input type="text" name="" id="month" value="" />
+		<input type="text" name="" id="day" value="" />
+		<input type="button" name="" id="btn" value="计算" />
+	</body>
+	<script type="text/javascript">
+////		小于60及格，60~70及格，70~80一般，80~90良好，90~100优秀					，100~学霸
+//		var str = "66";
+//		
+//		var num = parseInt(str/10);
+//		
+////		if(num == 10){
+////			console.log("满分")
+////		}else{
+//			switch(num){
+//				case 6:
+//					console.log("及格");
+//					break;
+//				case 7:
+//					console.log("一般");
+//					break;
+//				case 8:
+//					console.log("良好");
+//					break;
+//				case 9:
+//					console.log("优秀");
+//					break;
+//	//			case 10:
+//	//				console.log("学霸");
+//	//				break;
+//				default:
+//					console.log("不及格");
+////			}
+//		}
+		
+//		1）点击保存按钮时，使用JS判断用户的联系电话是否为纯数字，如果用户输入有错误，使用alert()弹框警告
+//		2）判断用户名是否填写，如果空白，使用alert弹框警告
+
+		
+//		var str1 = "123456";
+//		var str2 = "123456a";
+//		var str3 = "123.456";
+		
+//		if(isNaN(Number(str1))){
+//			alert("不是纯数字")
+//		}
+		
+//		if(parseInt(str1) != str1){
+//			alert("不是纯数字")
+//		}
+
+//		var str = "";
+//		if(!str){
+//			alert("请至少输入一个信息")
+//		}
+		
+//		1.根据一个数字日期，判断这个日期是这一年的第几天
+		var year = document.getElementById("year");
+		var month = document.getElementById("month");
+		var day = document.getElementById("day");
+		var btn = document.getElementById("btn");
+		
+		btn.onclick = function(){
+			var y = year.value;
+			var m = month.value;
+			var d = parseInt(day.value);
+			var sum = 0;
+			
+//			2018.05.15
+			
+			switch(m){
+				case "12":
+					if(d>31){
+						sum = "";
+					}else{
+						sum += 30;
+					}
+//					三目运算符
+//					d>31 ? sum="" : sum += 30;
+				case "11":
+					if(d>30){
+						sum = "";
+					}else{
+						sum += 30;
+					}
+				case "10":
+					sum += 30;
+				case "9":
+					sum += 31;
+				case "8":
+					sum += 31;
+				case "7":
+					sum += 30;
+				case "6":
+					sum += 31;
+				case "5":
+					sum += 30;
+				case "4":
+					sum += 31;
+				case "3":
+					if(y%4 == 0 && y%100 != 0 || y%400 == 0){
+						sum += 29;
+					}else{
+						sum += 28;
+					}
+				case "2":
+					sum += 31;
+				case "1":
+					sum = sum;
+					break;
+				default:
+					console.log("请输入正常月份")
+			}
+			
+			sum += d;
+			
+			if(typeof sum == "number"){
+				console.log(sum);
+			}else{
+				alert("请重新检查输入的日期是否正确")
+			}
+			
+		}
+		
+		
+//		var a = 26;
+//		var b = "";
+////		if(a>10){
+////			b = "大于10";
+////		}else{
+////			b = "小于10";
+////		}
+//		a > 10 ? b = "大于10" : b = "小于10"
+////		条件		条件为true执行		条件为false执行
+//		console.log(b);
+
+		
+//		var a = 5;
+//		if(a<10){
+//			a = "0" + a;
+//		}else{
+//			a = "" + a;
+//		}
+//		a = a<10 ? "0"+a : ""+a;
+//		console.log(a)
+		
+//		13:40
+//		08:50
+//		08----8
+//		08----08
+	</script>
+</html>

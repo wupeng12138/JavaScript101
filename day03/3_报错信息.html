@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="year" value="" />
+		<input type="text" name="" id="month" value="" />
+		<input type="text" name="" id="day" value="" />
+		<input type="button" name="" id="btn" value="计算" />
+	</body>
+	<script type="text/javascript">
+		var year = document.getElementById("year");
+		var month = document.getElementById("month");
+		var day = document.getElementById("day");
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var y = year.valaue;
+			var m = month.value;
+			var d = parseInt(day.value);
+			var sum = 0;
+			
+			switch(m){
+				case "11":
+					sum += 31;
+				case "10":
+					sum += 30;
+				case "9":
+					sum += 31;
+				case "8":
+					sum += 31;
+				case "7":
+					sum += 30;
+				case "6":
+					sum += 31;
+				case "5":
+					sum += 30;
+				case "4":
+					sum += 31;
+			}
+			console.log(sum);
+		}
+	</script>
+</html>

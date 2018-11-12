@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		1+2+3+4+...+99+100
+		
+//		* + *
+//		* + *
+//		* + *
+//		* + *
+//		* + *
+//		var str = "hello world<br>";
+//		
+//		document.write(str);
+		setTimeout(function () {
+			console.log(5)
+		},0);
+		new Promise(function executor(resolve) {
+			console.log(4);
+			for(var i=0;i<10000;i++)
+			{
+				i==9999&&resolve();
+			}
+			console.log(3);
+		}).then(function(){
+			console.log(2);
+		});
+		console.log(1)
+		
+		
+		
+	</script>
+</html>
