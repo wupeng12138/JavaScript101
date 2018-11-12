@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*.box::selection{background: red;color: yellow;}*/
+			.list{width: 200px;height: 300px;border: solid 2px black;background: #eee;padding: 10px;position: absolute;left: 0;top: 0;display: none;}
+			.list p{margin: 0;padding: 10px 6px;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			hello world
+		</div>
+		<a href="http://www.baidu.com">1111111</a>
+		
+		<form action="http://www.baidu.com?user=user" method="get">
+			<input type="text" name="user" id="user" value="" />
+			<input type="submit" value=""/>
+		</form>
+		<div class="list">
+			<p>复制</p>
+			<p>粘贴</p>
+			<p>全选</p>
+			<p>各种</p>
+			<p>。。。</p>
+		</div>
+	</body>
+	<script src="../cont.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		默认事件:没有人工添加,系统自带的行为
+//		当需要自定义某个行为的时候,默认事件可能会影响我们的效果,所以需要阻止默认事件
+		var olist = document.querySelector(".list")
+		document.oncontextmenu = function(eve){
+			var e = eve || window.event;
+//			console.log("鼠标邮件被点击");
+			
+//			console.log(eve.returnValue)
+//			e.preventDefault();			//IE9+
+//			e.returnValue = false;		//IE9-
+			
+//			return false;
+			
+			olist.style.display = "block";
+			olist.style.left = e.clientX + "px";
+			olist.style.top = e.clientY + "px";
+			
+			
+			stopDft(e);
+		}
+		
+		document.onclick = function(){
+			olist.style.display = "none"
+		}
+		olist.onclick = function(eve){
+			var e = eve || window.event;
+			stopBubble(e);
+		}
+		
+		
+	</script>
+</html>

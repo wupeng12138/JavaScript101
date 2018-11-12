@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{background: #eee;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>link</li>
+			<li>link</li>
+			<li>link</li>
+			<li>link</li>
+			<li>link</li>
+			<li>link</li>
+			<li>link</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oul = document.getElementsByTagName("ul")[0];
+		var ali = oul.children;
+		
+		for(var i=0;i<ali.length;i++){
+			
+			if(i%2 == 0){
+				ali[i].style.backgroundColor = "red"
+			}
+			
+		}
+	</script>
+</html>

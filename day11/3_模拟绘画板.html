@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#msg{position: absolute;bottom: 20px;left: 20px;}
+			div{width: 10px;height: 10px;background: black;border-radius: 50%;position: absolute;}
+			input{position: absolute;z-index: 333;width: 40px;height: 40px;}
+			input:nth-child(2){left: 60px;}
+			input:nth-child(1){left: 120px;}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn1" id="btn1" value="+" />
+		<input type="button" name="btn2" id="btn2" value="-" />
+		<input type="button" name="red" id="red" value="red" />
+		<span id="msg">X:0,Y:0</span>
+	</body>
+	<script type="text/javascript">
+		var omsg = document.getElementById("msg");
+		var w = 10;
+		var color = "black";
+		var obtn1 = document.getElementById("btn1")
+		var obtn2 = document.getElementById("btn2")
+		var ored = document.getElementById("red")
+		
+		obtn1.onclick = function(){
+			w += 10;
+		}
+		obtn2.onclick = function(){
+			w -= 10;
+			if(w<=0){
+				w=5;
+			}
+		}
+		ored.onclick = function(){
+			color = "red";
+		}
+		document.onmousemove = function(abc){
+			console.log(abc.clientX,abc.clientY);	
+			omsg.innerHTML = "X:" + abc.clientX + ",Y:" + abc.clientY;		
+			var div = document.createElement("div");
+			document.body.appendChild(div);
+			div.style.left = abc.clientX + "px";
+			div.style.top = abc.clientY + "px";			
+			div.style.width = w + "px";
+			div.style.height = w + "px";			
+			div.style.backgroundColor = color;			
+		}
+	</script>
+</html>

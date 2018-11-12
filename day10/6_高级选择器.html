@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="cont">
+			<!--1231-->
+			<div class="box1">1</div>
+			<div class="box2">2</div>
+			<div id="box">
+				<span>这是span</span>
+				<span>这是span</span>
+			</div>
+			<div class="box3">
+				<p id="p1">段落</p>
+				<p>段落</p>
+			</div>
+			<input type="text" />
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var ocont = document.getElementById("cont");
+//		
+//		var first = ocont.firstChild;			//第一个子节点
+//		var firstE = ocont.firstElementChild;	//第一个子元素节点
+//		console.log(first);
+//		console.log(firstE);
+//		console.log(ocont.lastChild)
+//		console.log(ocont.lastElementChild)
+//		
+//		var obox = document.getElementById("box");
+//		
+//		console.log(obox.previousSibling)
+//		console.log(obox.previousElementSibling);
+//		
+//		console.log(obox.nextSibling);
+//		console.log(obox.nextElementSibling);
+		
+		var obj = document.getElementById("p1").parentNode.previousElementSibling.lastElementChild;
+		
+		
+		console.log(obj)
+		
+		console.log(obj.ownerDocument)
+		
+//		取舍
+		
+	</script>
+</html>

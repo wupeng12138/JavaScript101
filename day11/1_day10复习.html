@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		DOM,document,节点
+		元素节点
+		属性节点
+		文本节点
+		注释节点
+		根节点
+		
+		属性节点的操作:
+			元素.attributes	//数组
+				obox.className
+				obox.id
+				obox.tagName
+				
+				obox.setAttribute("liyang","好")
+				obox.setAttribute("liyang","好ren")
+				obox.getAttribute("liyang")
+				obox.removeAttribute("liyang")
+				
+				obox.liyang = "admin"
+				obox.liyang
+			
+				obox.attributes["id"].nodeType	//2
+				obox.attributes["id"].nodeName	//id
+				obox.attributes["id"].nodeValue	//id名
+				
+		元素节点的操作:
+			document.getElementById()
+			document.getElementsByClassName()
+			document.getElementsByTagName()
+			document.getElementsByName()
+			
+			document.querySelectorAll()
+			document.querySelector()
+			
+			子元素.parentNode
+			父元素.children
+			
+			父元素.firstChild()
+			父元素.firstElementChild()
+			父元素.lastChild()
+			父元素.lastElementChild()
+			
+			当前元素.previousSibling();
+			当前元素.previousElementSibling();
+			当前元素.nextSibling();
+			当前元素.nextElementSibling();
+			
+			document.createElement("div");
+			document.body.appendChild()
+			
+			当前元素.remove()
+			父元素.removeChild(子元素)
+			
+			元素.outerHTML
+			
+			元素节点.nodeType
+			元素节点.nodeName
+			元素节点.nodeValue	//null
+			
+			
+		nodeType		nodeName		nodeValue
+	ele		1			标签名				null
+	attr	2			属性名				属性值
+	comment	8			#comment			注释文本
+	text	3			#text				文本内容
+	doc		9			#document			null
+		
+		js行为,改变,元素,选中,改变,什么时候改变--事件
+		
+			鼠标:
+				onmouseout
+						over
+						down
+						up
+						move
+						enter
+						leave
+				onclick
+				ondblclick
+				oncontextmenu
+			
+			元素:
+				onfocus		获得
+				onblur		失去
+				onsubmit
+				onreset
+				onchange
+				.....
+				
+			window:
+				onload
+				onscroll
+				onresize
+				
+			.........
+		
+		老大,派一个小弟,走着去执行任务,把洪兴老大揍一顿
+		
+		浏览器,程序员,事件名,事件处理函数
+		
+		window.onload = function(){
+			
+		}
+		
+		
+	</script>
+</html>

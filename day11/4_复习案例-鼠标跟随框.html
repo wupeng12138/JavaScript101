@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			ul{width: 1000px;border: solid 1px black;padding: 20px;margin: 0 auto;}
+			ul li {line-height: 40px;background: #ccc;margin-bottom: 10px;}
+			
+			.msg div{width: 200px;height: 100px;border: solid 2px black;background: #aaa;display: none;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>新闻1</li>
+			<li>新闻2</li>
+		</ul>
+		<div class="msg">
+			<div>新闻1新闻1新闻1新闻1新闻1新闻1新闻1</div>
+			<div>新闻2新闻2新闻2新闻2新闻2新闻2</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		鼠标跟随提示框，离开延迟消失
+		
+		var ali = document.getElementsByTagName("li");
+		
+		var adiv = document.getElementsByClassName("msg")[0].children;
+		
+		for(var i=0;i<ali.length;i++){
+			ali[i].index = i;
+			ali[i].onmouseover = function(eve){
+				var e = eve || window.event;
+				adiv[this.index].style.display = "block";
+				
+				adiv[this.index].style.left = e.offsetX + this.offsetLeft + 10 + "px";
+				adiv[this.index].style.top = e.offsetY + this.offsetTop + 10 + "px";
+				
+//				adiv[this.index].style.left = e.clientX + 10 + "px";
+//				adiv[this.index].style.top = e.clientX + 10 + "px";
+				
+				this.onmousemove = function(eve){
+					var e = eve || window.event;
+					console.log(1)
+					adiv[this.index].style.left = e.offsetX + this.offsetLeft + 10 + "px";
+					adiv[this.index].style.top = e.offsetY + this.offsetTop + 10 + "px";
+
+//					adiv[this.index].style.left = e.clientX + 10 + "px";
+//					adiv[this.index].style.top = e.clientY + 10 + "px";
+				}
+			}
+			ali[i].onmouseout = function(){
+				adiv[this.index].style.display = "none";
+			}
+		}
+		
+	</script>
+</html>

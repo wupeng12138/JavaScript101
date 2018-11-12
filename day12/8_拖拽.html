@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body style="height: 3000px;">
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var obox = document.querySelector(".box");
+		var clientW = document.documentElement.clientWidth || document.body.clientWidth;
+		var clientH = document.documentElement.clientHeight || document.body.clientHeight;
+		obox.onmousedown = function(eve){
+			var e = eve || window.event;
+			var disX = e.offsetX;
+			var disY = e.offsetY;
+//		onscroll = function(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(scrollTop);
+		
+			document.onmousemove = function(eve){
+				var e = eve || window.event;
+				var l = e.clientX - disX;
+				var t = e.clientY - disY;
+//				if(l<0){
+//					l=0
+//				}
+				if(l<0) {l=0;}
+				if(t<0) {t=0;}
+				if(l>clientW-obox.offsetWidth) {l=clientW-obox.offsetWidth;}
+				if(t>clientH-obox.offsetHeight) {t=clientH-obox.offsetHeight;}
+				obox.style.left = l + "px";
+				obox.style.top = t + scrollTop + "px";
+			}
+//		}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+		}
+		
+	</script>
+</html>

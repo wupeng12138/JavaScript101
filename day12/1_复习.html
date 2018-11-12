@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		1.刷新浏览器的操作
+			localtion.reload()
+			history.go(0)
+		2.定时器
+			setInterval()
+			setTimeout()
+		3.数组的方法
+			push/shift/pop/unshift/splice/slice/indexOf/forEach/map/filter/join
+		4.字符串的方法
+			indexOf/slice/subString/replace/charCodeAt/fromCharCode/split
+		5.开启严格模式
+			"use strict"
+		6.如何创建一个div元素a,并将a插入到b中
+			var a = document.createElement("div")
+			b.appendChild(a);
+		7.对象的本质和意义
+			键值对/存储数据和编程
+		8.如何获取页面滚动条距离顶部的位置
+			document.documentElement.scrollTop
+		9.冒泡排序
+			for(var i=0;i<arr.length-1;i++){
+				for(var j=0;j<arr.length-i-1;j++){
+					if(arr[j] > arr[j+1]){
+						var ls = 0;
+						ls = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = arr[i];
+					}
+				}
+			}
+			
+		数组:
+			数组创建
+			数组的操作
+			数组的算法(排序)
+		ES5和字符串
+			严格模式:"use strict"
+				var
+				this
+				参数不能重复
+				arguments.callee() ×
+				arguments的参数,不变
+			数组的方法:
+				indexOf()
+				遍历方式
+			字符串的方法
+				json数据的使用配合字符串的拼接
+			字符编码:
+				num.toString()
+				parseInt()
+				String.fromCharCode()
+		对象:
+			自定义:
+				对象的创建
+				对象的比较
+				对象的本质和意义
+			内置:
+				Math
+				var d = new Date();
+					d.get....
+					d.get.... 0~11
+					d.get.... 0~6
+					
+					new Date("2018.11.15") //不推荐
+					d.set...
+					d.set...
+					d.set...
+		BOM和DOM
+			BOM:window.history/location/navigator
+						历史		url		浏览器信息
+			
+			DOM:document
+				js的作用,行为,改变,谁,元素,怎么改变
+				增删改查
+				查DOM元素
+					document.getElementById("")
+					....
+				节点:
+					元素↑↑↑↑	1	标签名		null
+					属性		2	属性名		属性值
+					文本		3	#text		文本内容
+					注释		8	#comment	注释内容
+					文档		9	#document	null
+				
+				元素的增删改:
+					document.createElement("div")
+					父元素.appendChild(子元素)
+					
+					元素.remove()
+					父元素.removeChild(子元素)
+					
+					元素.outerHTML	//不推荐
+				
+				尺寸:
+					scrollTop;
+					offsetWidth/offsetHeight
+					offsetLeft/offsetTop
+					offsetParent
+					clientWidth/clientHeight
+				
+		事件对象event:
+			事件对象:记录当前事件发生过程中产生的所有信息
+			事件处理函数的传参
+			obox.onclick = function(eve){
+				var e = eve || window.event;
+				e.button
+				e.offsetX/e.offsetY
+				e.clientX/e.clientY
+				e.pageX/e.pageY
+				e.screenX/e.screenY
+			}
+			
+			document.onkeydown = function(eve){
+				vae e = eve || window.event;
+				e.keyCode	13/37/38/39/40
+			}
+			
+//		事件对象
+	</script>
+</html>

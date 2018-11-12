@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script src="../cont.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		document.onkeydown = function(eve){
+//			var e = eve || window.event;
+//			
+////			console.log(e.keyCode);
+////			console.log(e.ctrlKey);
+////			console.log(e.shiftKey);
+////			console.log(e.altKey);
+//			
+////			shift === 16
+////			ctrl  === 17
+////			alt   === 18
+//			
+//		}
+		
+		
+		var obox = document.querySelector(".box");
+		document.onkeydown = function(eve){
+			var e = eve || window.event;
+			console.log(e.keyCode);
+			if(e.keyCode == 37){
+				obox.style.left = obox.offsetLeft - 10 + "px";
+			}
+			if(e.keyCode == 39){
+				obox.style.left = obox.offsetLeft + 10 + "px";
+			}
+			if(e.keyCode == 38){
+				obox.style.top = obox.offsetTop - 10 + "px";
+			}
+			if(e.keyCode == 40){
+				obox.style.top = obox.offsetTop + 10 + "px";
+			}
+//			obox.style.background = randomColor();
+		}
+	</script>
+</html>

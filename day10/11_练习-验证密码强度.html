@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<input type="button" name="btn" id="btn" value="" />
+	</body>
+	<script type="text/javascript">
+		var obtn = document.getElementById("btn");
+		var otxt = document.getElementById("txt");
+		
+		obtn.onclick = function(){
+//			otxt.value;
+//			只能以数字开头
+			if(isNaN(parseInt(otxt.value))){
+				alert("不允许非数字开头");
+				return;
+			}
+			if(!(18 >= otxt.value.length && otxt.value.length >= 6)){
+				alert("长度不符合，请输入6~18位");
+				return 0;
+			}
+			
+			var num = 1;	//数字的开关	//因为第一条规则只允许数字开头，所以数字肯定出现，开关默认打开
+			var abc = 0;	//字母的开关
+			var _abc = 0;	//特殊字符的开关
+			
+			for(var i=0;i<otxt.value.length;i++){
+				if((otxt.value.charCodeAt(i)>=65 && otxt.value.charCodeAt(i)<=90) || (otxt.value.charCodeAt(i)>=97 && otxt.value.charCodeAt(i)<=122)){
+					abc = 1;
+				}
+			}
+			
+			for(var i=0;i<otxt.value.length;i++){
+				if(otxt.value.charCodeAt(i)>=33 && otxt.value.charCodeAt(i)<=47){
+					_abc = 1;
+				}
+			}
+			
+			var str = "";
+			switch(num+abc+_abc){
+				case 1:str = "差";break;
+				case 2:str = "中";break;
+				case 3:str = "强";break;
+			}
+			
+			console.log(str)
+		}
+	</script>
+</html>

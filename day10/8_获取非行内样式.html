@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{width: 150px;height: 160px;background: red;position: absolute;left: 200px;top: 100px;margin: 20px;padding: 30px;border: solid 10px black;}
+			/*.box:before{content: "我是伪类选择器";color}*/
+		</style>
+	</head>
+	<body>
+		<div class="cont" style="position: relative;">
+			<div class="box" id="box"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var obox = document.getElementById("box");
+//		
+//		console.log(obox.offsetWidth)
+//		console.log(obox.offsetHeight)
+//		console.log(obox.offsetLeft)
+//		console.log(obox.offsetTop)
+//		
+//		console.log(obox.offsetParent);
+		
+//		obox.style.left = "300px"
+
+//		包含块：距离绝对定位元素最近的一个具有定位属性的父元素，如果没有这样一个父元素，那就是根元素
+		
+//		console.log(document.documentElement.clientWidth)
+//		console.log(document.documentElement.clientHeight)
+		
+//		console.log(document.body.clientWidth)
+//		console.log(document.body.clientHeight)
+		
+		var obox = document.getElementById("box");
+		
+//		console.log(obox.currentStyle("hieght"));
+		
+//		console.log(getComputedStyle(obox).background)
+		
+//		console.log(obox.currentStyle);
+//		console.log(getComputedStyle)
+		
+		function getStyle(ele,attr){
+			if(getComputedStyle){
+				return getComputedStyle(ele)[attr];
+			}else{
+				return ele.currentStyle[attr];
+			}
+		}
+		
+		console.log(getStyle(obox,"border"));
+		console.log(getStyle(obox,"background"));
+		
+		getComputedStyle(obox,false).width;
+		
+	</script>
+</html>

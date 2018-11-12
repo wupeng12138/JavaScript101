@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width:100px;height:100px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		var obox = document.getElementById("box")
+		
+////		DOM0级事件添加
+//		obox.onclick = function(){
+//			console.log(1);
+//		}
+//		obox.onclick = function(){
+//			console.log(2);
+//		}
+////		删除
+//		obox.onclick = null;
+		
+//		事件监听方式,绑定事件
+//		DOM2级事件添加
+//		obox.addEventListener("click",fn1);		//fn1事件处理函数的句柄
+//		obox.addEventListener("click",fn2);		//fn2事件处理函数的句柄
+		
+//		function fn2(){
+//			console.log(2)
+//		}
+//		
+		function fn1(){
+			console.log(1)
+		}
+		
+//		obox.removeEventListener("click",fn2);	//删除的是事件处理函数的句柄
+		
+//		obox.attachEvent("onclick",ieFn1)
+//		obox.attachEvent("onclick",ieFn2)
+//		
+//		function ieFn1(){
+//			console.log("hello")
+//		}
+//		
+//		function ieFn2(){
+//			console.log("world")
+//		}
+//		
+//		obox.detachEvent("onclick",ieFn2)
+
+
+		var obj = {
+			addEvent:function (ele,eveName,callback){
+				if(ele.addEventListener){
+					ele.addEventListener(eveName,callback,false)
+				}else if(ele.attachEvent){
+					ele.attachEvent("on"+eveName,callback,false)
+				}else{
+					ele["on" + eveName] = callback;
+				}
+			},
+			removeEvent:function (ele,eveName,callback){
+				if(ele.removeEventListener){
+					ele.removeEventListener(eveName,callback)
+				}else if(ele.detachEvent){
+					ele.detachEvent("on"+eveName,callback)
+				}else{
+					ele["on"+eveName] = null;
+				}
+			}
+		}
+		
+		obj.addEvent(obox,"click",fn1)
+		obj.addEvent(obox,"click",fn2)
+		obj.removeEvent(obox,"click",fn2)
+		
+//		function addEvent(ele,eveName,callback){
+//			if(ele.addEventListener){
+//				ele.addEventListener(eveName,callback)
+//			}else if(ele.attachEvent){
+//				ele.attachEvent("on"+eveName,callback)
+//			}else{
+//				ele["on" + eveName] = callback;
+//			}
+//		}
+//		function removeEvent(ele,eveName,callback){
+//			if(ele.removeEventListener){
+//				ele.removeEventListener(eveName,callback)
+//			}else if(ele.detachEvent){
+//				ele.detachEvent("on"+eveName,callback)
+//			}else{
+//				ele["on"+eveName] = null;
+//			}
+//		}
+		
+		
+//		addEvent(obox,"click",function(){
+//			console.log("html")
+//		})
+//
+//		
+		function fn2(){
+			console.log("css")
+		}
+		
+//		addEvent(obox,"click",fn2)
+//		
+//		removeEvent(obox,"click",fn2)
+		
+		
+		
+//		var eveName = "click";
+//		
+//		document["on"+eveName] = function(){}
+//		
+//		document.onclick = function(){}
+	</script>
+</html>

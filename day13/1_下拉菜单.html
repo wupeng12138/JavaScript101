@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 300px;height: 400px;margin: 10px auto;border: solid 1px black;/*position: relative;*/}
+			.box input{height: 40px;box-sizing: border-box;width: 300px;}
+			.box .list{width: 260px;border: solid 1px #222;margin: 0 auto;/*position: absolute;left: 0;right: 0;top: 40px*/;display: none;}
+			.list p{margin: 0;padding: 10px 6px;}
+			.list p.active{background: #ccc;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="txt1" />
+			<div class="list">
+				<p>选项1</p>
+				<p>选项2</p>
+				<p>选项3</p>
+				<p>选项4</p>
+				<p>选项5</p>
+				<p>选项6</p>
+				<p>选项7</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var otxt1 = document.getElementById("txt1");
+		var olist = document.querySelector(".list");
+		var ap = olist.children;
+		var abc = ap.length-1;
+		
+		otxt1.onclick = function(eve){
+			var e = eve || window.event;
+			e.cancelBubble = true;
+		}
+		
+		otxt1.onfocus = function(){
+			olist.style.display = "block";
+		}
+		
+		for(var i=0;i<ap.length;i++){
+			ap[i].index = i;
+			ap[i].onmouseover = function(){
+				addClass(this);
+//				console.log(this)
+				abc = this.index;
+			}
+		}
+		
+		function addClass(ele){
+//			console.log(ele)
+			for(var j=0;j<ap.length;j++){
+				ap[j].className = "";
+			}
+			ele.className = "active";
+			otxt1.value = ele.innerHTML;
+		}
+		
+		otxt1.onkeydown = function(eve){
+			var e = eve || window.event;
+			if(e.keyCode == 38){
+				if(abc == 0){
+					abc = ap.length-1
+				}else{
+					abc--;
+				}
+				addClass(ap[abc])
+			}
+			if(e.keyCode == 40){
+				if(abc == ap.length-1){
+					abc = 0;
+				}else{
+					abc++;
+				}
+				addClass(ap[abc]);
+			}
+		}
+		
+		document.onclick = function(){
+			olist.style.display = "none"
+		}
+		
+		
+	</script>
+</html>

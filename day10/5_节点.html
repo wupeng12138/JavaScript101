@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" class="box" title="这是一个title">
+			<div class="left">这是一个叫left的div</div>
+			<div class="top">这是一个叫right的div</div>
+			<!--这是一个注释-->
+			<span>这是一个span</span>
+			<span>这是一个span</span>
+			<span>这是一个span</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		节点
+//		在DOM中,每个部分都叫节点
+//		根节点
+//		元素节点
+//		属性节点
+//		注释节点
+//		文本节点
+
+//		选择器:选择的元素,选择到的元素节点
+//		属性:操作的属性节点
+		
+//		childNode	子节点
+		
+		var obox = document.getElementById("box");
+		
+//		console.log(obox.children)		//获得所有子元素节点
+		
+//		console.log(obox.attributes)	//获得所有的属性节点
+		
+//		console.log(obox.childNodes)	//获得所有的子节点
+		
+		var achild = obox.childNodes;
+		
+//		console.log(achild[0]);
+//		console.log(achild[1]);
+		
+//		节点的属性：nodeType/nodeName/nodeValue
+//		console.log(achild[0].nodeType);
+//		console.log(achild[1].nodeType);
+//		console.log(achild[2].nodeType);
+//		console.log(achild[5].nodeType);
+//		console.log(achild[7].nodeType);
+//		
+//		console.log(achild[0].nodeName);
+//		console.log(achild[1].nodeName);
+//		console.log(achild[5].nodeName);
+//		
+//		console.log(achild[0].nodeValue);
+//		console.log(achild[1].nodeValue);
+//		console.log(achild[5].nodeValue);
+//		
+//		console.log(document.nodeType)
+//		console.log(document.nodeName)
+//		console.log(document.nodeValue)
+//		
+//		var attr = obox.attributes;
+//		console.log(attr);
+//		
+//		console.log(attr[0].nodeType)
+//		console.log(attr[1].nodeName)
+//		console.log(attr[0].nodeName)
+//		console.log(attr[0].nodeValue)
+//		console.log(attr[2].nodeValue)
+		
+//		for(var i=0;i<achild.length;i++){
+//			if(achild[i].nodeType == 1){
+//				console.log(achild[i]);
+//			}
+//		}
+		
+	</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 300px;height: 300px;margin: 10px auto;border: solid 1px black;/*position: relative;*/}
+			.box input{height: 40px;box-sizing: border-box;width: 300px;}
+			.box .list{width: 260px;border: solid 1px #222;margin: 0 auto;/*position: absolute;left: 0;right: 0;top: 40px*/;display: none;}
+			.list p{margin: 0;padding: 10px 6px;}
+			.list p.active{background: #ccc;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" id="txt1" />
+			<div class="list">
+				<p>选项1</p>
+				<p>选项2</p>
+				<p>选项3</p>
+				<p>选项4</p>
+			</div>
+		</div>
+	</body>
+	<script src="../cont.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var otxt = document.getElementById("txt1");
+		var olist = document.querySelector(".list");
+		var ap = olist.children;
+		var index = ap.length-1;		//公用变量，键盘和鼠标
+		
+		//获得焦点的时候显示
+		otxt.onfocus = function(){
+			olist.style.display = "block";
+		}
+		//失去焦点的时候消失
+//		otxt.onblur = function(){
+//			olist.style.display = "none";
+//		}
+		
+		//取消输入框的事件冒泡
+		otxt.onclick = function(eve){
+			var e = eve || window.event;
+			stopBubble(e);
+		}
+		//给p添加鼠标经过和点击事件
+		for(var i=0;i<ap.length;i++){
+			ap[i].abc = i;
+			ap[i].onmouseover = function(){
+				for(var j=0;j<ap.length;j++){
+					ap[j].className = "";
+				}
+				this.className = "active";
+				index = this.abc;
+			}
+			ap[i].onclick = function(){
+				otxt.value = this.innerHTML;
+			}
+		}
+		
+		otxt.onkeydown = function(eve){
+			var e = eve || window.event;
+			if(e.keyCode == 38){
+				if(index == 0){
+					index = ap.length-1;
+				}else{
+					index--;
+					otxt.value = ap[index].innerHTML;
+				}
+				for(var j=0;j<ap.length;j++){
+					ap[j].className = "";
+				}
+				ap[index].className = "active";
+			}
+			//index是当前项的索引
+			if(e.keyCode == 40){
+				if(index == ap.length-1){
+					index = 0;
+				}else{
+					index++;
+					otxt.value = ap[index].innerHTML;
+				}
+				for(var j=0;j<ap.length;j++){
+					ap[j].className = "";
+				}
+				ap[index].className = "active";
+			}
+			if(e.keyCode == 13){
+				otxt.value = ap[index].innerHTML;
+				olist.style.display = "none";
+				otxt.blur();
+			}
+		}
+		
+		
+		//点击空白处隐藏下拉
+		document.onclick = function(){
+			olist.style.display = "none";
+			console.log(1)
+		}
+	</script>
+</html>

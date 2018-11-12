@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 200px;height: 200px;background: red;position: absolute;left: 100px;top: 50px;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+//		老大,派一个小弟,走着去执行任务,把洪兴老大揍一顿
+//			派女秘书,录音笔或录像机,一步迈多大,走了多少步,用身体的那个部位揍了对方,什么角度,什么力度,对方的惨嚎程度
+//			秘书的任务记录信息,帮助你完成任务,或者反馈给老大
+//			伊文,event,隐藏起来,需要查看任务日志的时候,需要喊一声
+//			
+//		浏览器,程序员,事件名,事件处理函数
+		
+		var obox = document.querySelector(".box");
+		
+		obox.onclick = function(event){
+			console.log(event)
+//			console.log(event.offsetX);
+//			console.log(event.offsetY);
+//			坐标，被触发的位置
+//			console.log(event.pageX)
+//			console.log(event.pageY)
+
+//			console.log(event.screenX)
+//			console.log(event.screenY)
+
+			console.log(event.clientX)
+			console.log(event.clientY)
+			
+//			obox.background = "#ff0";
+			obox.style.width = "1000px";		//********重点：改变html的属性值
+			obox.style.background = "#000000";
+			document.body.style.background = "#CCC";
+			
+		}
+		
+//		事件被触发时相对于事件源的位置:offsetX/offsetY
+//		事件被触发时相对于页面的位置:pageX/pageY
+//		事件被触发时相对于显示器的位置:screenX/screenY
+//		事件被触发时相对于浏览器的可视区域的位置:clientX/clientY
+		
+		document.onmousedown = function(){
+			console.log(arguments[0].button)
+		}
+		
+	</script>
+</html>

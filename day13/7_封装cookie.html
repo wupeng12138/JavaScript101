@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+//		console.log(getCookie("age"));
+//		console.log(getCookie("pass"));
+//		console.log(getCookie("a"));
+//		console.log(getCookie("b"));
+//		console.log(getCookie("abc"));
+		
+		
+		
+		
+//		setCookie("a",10)
+//		setCookie("b",12,3)
+//		setCookie("c",14,7)
+//		setCookie("age","18",20);
+//		setCookie("user","admin",10);
+//		setCookie("pass","123456",1);
+//		
+//		setCookie("pass","704206198",1);
+		
+//		removeCookie("user");
+//		removeCookie("age");
+//		removeCookie("pass");
+
+		//删除cookie
+		function removeCookie(key){
+			setCookie(key,1212,-1);
+		}
+		//设置cookie
+		function setCookie(key,value,day){
+//			console.log(day);
+
+//			day = day || 0;
+			
+			if(!day) day = 0;
+			
+			var d = new Date();
+			d.setDate(d.getDate()+day);
+			document.cookie = key+"="+value+";expires="+d;
+		}
+		
+		//获取cookie
+		function getCookie(msg){
+			var str = document.cookie;
+			var arr = str.split("; ");
+			var newArr = [];
+			for(var i=0;i<arr.length;i++){
+//				if(arr[i].split("=")[0] == msg){
+//					return arr[i].split("=")[1];
+//				}
+				newArr.push(arr[i].split("="))
+			}
+			for(var i=0;i<newArr.length;i++){
+				if(newArr[i][0] == msg){
+					return newArr[i][1]
+				}
+			}
+			
+//			console.log(newArr);
+		}
+		
+		console.log(getCookie("pass"));
+	</script>
+</html>

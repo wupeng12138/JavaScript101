@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			
+			.cont{width: 500px;height: 340px;border: solid 2px black;margin: 30px auto;}
+			.cont ul{border-bottom: solid 1px black;box-sizing: border-box;overflow: hidden;}
+			.cont ul li{width: 100px;line-height: 40px;text-align: center;border-right: solid 1px black;float: left;}
+			.box .msg{height: 300px;background: #ccc;font-size: 50px;display: none;}
+			
+			li.active{background: #ccc;}
+			.box div.active{display: block;}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul>
+				<li class="active">新闻1</li>
+				<li>新闻2</li>
+				<li>新闻3</li>
+			</ul>
+			<div class="box">
+				<div class="msg active">1111111111111</div>
+				<div class="msg">222222222</div>
+				<div class="msg">33333333333</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ali = document.querySelectorAll("li");
+		var amsg = document.querySelectorAll(".msg");
+		
+		for(var i=0;i<ali.length;i++){
+			ali[i].index = i;
+			ali[i].onclick = function(){
+//				console.log(this.index);
+				
+				for(var j=0;j<ali.length;j++){
+					ali[j].className = "";
+					amsg[j].className = "msg";
+				}
+				
+				this.className = "active";
+				amsg[this.index].className = "msg active";
+				
+			}
+		}
+		
+	</script>
+</html>

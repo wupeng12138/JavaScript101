@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		document.onkeydown = function(eve){
+//			console.log(1)
+			var e = eve || window.event;
+//			console.log(e.keyCode)
+			if(e.keyCode == 13){
+				console.log("回车键")
+			}
+		}
+		
+		
+//		onkeyup			//键盘抬起
+//		onkeypress		//键盘按下并抬起（键盘的点击）
+		
+//		onkeypress ========   onkeydown + onkeyup
+//		onclick   ========    onmousedown + onmouseup
+	</script>
+</html>

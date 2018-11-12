@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{position: relative;}
+			span{background: red;cursor: pointer;}
+			.msg{width: 100px;height: 100px;background: #ccc;position: absolute;top: 20px;display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span>+++</span>
+			<div class="msg">1111</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ospan = document.querySelector("span");
+		var omsg = document.querySelector(".msg");
+		
+//		事件冒泡
+		ospan.onclick = function(eve){
+			var e = eve || window.event;
+			e.cancelBubble = true;
+			omsg.style.display = "block"
+//			alert(1)
+		}
+		
+		omsg.onclick = function(eve){
+			var e = eve || window.event
+			e.cancelBubble = true
+		}
+		
+		document.onclick = function(){
+			omsg.style.display = "none"
+//			alert(2)
+		}
+		
+	</script>
+</html>

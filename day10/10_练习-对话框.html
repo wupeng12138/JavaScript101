@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{width: 300px;height: 400px;margin: 10px auto;border: solid 1px black;}
+			#cont .msg{width: 100%;height: 340px;border-bottom: solid 1px black;box-sizing: border-box;padding: 10px;overflow: auto;}
+			#cont .box{height: 100px;}
+			textarea{width: 260px;height: 60px;border: none;background: none;outline: none;float: left;box-sizing: border-box;resize: none;}
+			#btn{width: 40px;height: 60px;float: left;border: solid 1px #ccc;background: #ccc;box-sizing: border-box;}
+			.msg div{clear: both;max-width: 200px;padding: 10px;border-radius: 12px;margin-bottom: 10px;}
+			.msg div:nth-child(2n){float: left;background: limegreen;}
+			.msg div:nth-child(2n-1){float: right;background: dodgerblue;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div class="msg">
+				
+			</div>
+			<div class="box">
+				<textarea></textarea>
+				<input type="button" id="btn" value="发送" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var otxt = document.getElementsByTagName("textarea")[0];
+		var obtn = document.getElementById("btn");
+		var omsg = document.getElementsByClassName("msg")[0];
+		
+		obtn.onclick = function(){
+			var div = document.createElement("div")
+			div.innerHTML = otxt.value;
+			omsg.appendChild(div);
+			otxt.value = "";
+		}
+		
+		
+	</script>
+</html>
