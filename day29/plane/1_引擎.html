@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="dahuiji.css"/>
+	</head>
+	<body>
+		<div id="body_main" class="main">
+			<ul id="options" class="options">
+				<li value="1">超级困难</li>
+				<li value="2">非常困难</li>
+				<li value="3">比较困难</li>
+				<li value="4">就选我吧</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		引擎部分:按钮,保存难度,loading动画
+		
+//		创建我的飞机:随着鼠标移动
+//		创建子弹:跟着飞机的位置
+//		创建敌机:随机显示大中小,缓慢向下运动
+		
+//		子弹:撞墙,die
+		
+//		子弹与敌机相撞:子弹和敌机,die
+		
+//		拓展:我的飞机与敌机相撞:我的飞机die,敌机根据血量决定是否die
+//			积分功能
+//			武器升级系统
+		
+		function Engine(){
+			this.btn = document.querySelectorAll("li");
+			this.main = document.getElementById("body_main");
+			this.hard = 1;
+			
+			this.init()
+		}
+		Engine.prototype.init = function(){
+			var that = this;
+			for(let i=0;i<this.btn.length;i++){
+				this.btn[i].onclick = function(){
+					that.hard = parseInt(this.getAttribute("value"));
+					this.parentNode.remove();
+					that.load();
+				}
+			}
+		}
+		Engine.prototype.load = function(){
+			var that = this;
+			let speedY = 0;
+			setInterval(function(){
+				speedY += 4;
+				that.main.style.backgroundPositionY = speedY + "px";
+			},30)
+			
+			this.logo = createDiv("logo");
+			this.loading = createDiv("loading");
+			
+			let i = 1;
+			
+			this.main.load = setInterval(function(){
+				if(i == 3){
+					i=1;
+				}else{
+					i++;
+				}
+				console.log(i)
+				that.loading.style.backgroundImage = "url(images/loading"+i+".png)";
+			},400)
+			
+			setTimeout(function(){
+				that.gameStart();
+				clearInterval(that.main.load)
+			},100)
+			
+		}
+		Engine.prototype.gameStart = function(){
+			var that = this;
+			this.logo.remove()
+			this.loading.remove()
+			plane.init(this.main)
+			plane.fire(this.hard)
+			
+//			new Enemy(that.main,1);
+			
+			setInterval(function(){
+				if(Math.random()>0.2){
+					new Enemy(that.main,1);
+				}
+			},1000)
+			
+			setInterval(function(){
+				Math.random()>0.4 ? new Enemy(that.main,2) : "";
+			},2000)
+			
+			setInterval(function(){
+				Math.random()>0.5 ? new Enemy(that.main,3) : "";
+			},3000)
+			
+			
+		}
+		new Engine();
+		
+		var plane = {
+			init:function(main){
+				this.engineMain = main;
+				this.main = createDiv("my-warplain")
+				this.main.style.left = (this.engineMain.offsetWidth-this.main.offsetWidth)/2+"px";
+				this.main.style.bottom = 0;
+				this.move()
+			},
+			move:function(){
+				var that = this;
+				this.engineMain.onmousemove = function(eve){
+					let e = eve || window.event;
+					that.l = e.clientX - this.offsetLeft - parseInt(that.main.offsetWidth/2);
+					that.t = e.clientY - parseInt(that.main.offsetHeight/2);
+					
+					if(that.l<0) that.l=0;
+					if(that.t<0) that.t=0;
+					if(that.l>this.offsetWidth-that.main.offsetWidth){
+						that.l=this.offsetWidth-that.main.offsetWidth;
+					}
+					
+					that.main.style.left = that.l + "px";
+					that.main.style.top = that.t + "px";
+				}
+			},
+			fire:function(hard){
+				var that = this;
+				let time = 600;
+				switch(hard){
+					case 1:time = 600;break;
+					case 2:time = 400;break;
+					case 3:time = 200;break;
+					case 4:time = 80;break;
+				}
+				
+				setInterval(function(){
+					that.aBullet.push(new Bullet());
+				},time)
+			},
+			aBullet:[]
+		}
+		
+		function Bullet(){
+			
+			this.init();
+		}
+		Bullet.prototype = {
+			constructor:Bullet,
+			init:function(){
+				this.main = createDiv("bullet");
+				this.main.style.left = plane.main.offsetLeft + plane.main.offsetWidth/2 - this.main.offsetWidth/2 + "px";
+				this.main.style.top = plane.main.offsetTop - this.main.offsetHeight + "px";
+				
+				this.move();
+			},
+			move:function(){
+				this.godie = setInterval(()=>{
+					this.main.style.top = this.main.offsetTop-7 + "px";
+					if(this.main.offsetTop <= 0){
+						this.die()
+					}
+				},30)
+			},
+			die:function(){
+				clearInterval(this.godie)
+				this.main.className = "bullet_die";
+				setTimeout(()=>{
+					this.main.style.backgroundImage = "url(images/die2.png)";
+				},60)
+				setTimeout(()=>{
+					this.main.remove();
+					for(let i=0;i<plane.aBullet.length;i++){
+						if(this.main == plane.aBullet[i].main){
+							plane.aBullet.splice(i,1);
+						}
+					}
+				},140)
+			}
+		}
+		
+		class Enemy{
+			constructor(main,type){
+				this.engineMain = main;
+				this.type = type;
+				
+				this.init();
+			}
+			init(){
+				switch(this.type){
+					case 1:
+						this.src = "enemy-small";
+						this.speed = 3;
+						this.hp = 5;
+						this.bg = 3;
+						break;
+					case 2:
+						this.src = "enemy-middle";
+						this.speed = 2;
+						this.hp = 10;
+						this.bg = 4;
+						break;
+					case 3:
+						this.src = "enemy-large";
+						this.speed = 1;
+						this.hp = 15;
+						this.bg = 6;
+						break;
+				}
+				
+				this.main = createDiv(this.src);
+				this.main.style.left = random(0,this.engineMain.offsetWidth-this.main.offsetWidth) + "px";
+				this.main.style.top = -this.main.offsetHeight - 50 + "px";
+				this.move();
+			}
+			move(){
+				this.main.timer = setInterval(()=>{
+					this.main.style.top = this.main.offsetTop + this.speed + "px";
+					if(this.main.offsetTop > this.engineMain.offsetHeight + this.main.offsetHeight + 100){
+						this.die();
+					}
+					for(let i=0;i<plane.aBullet.length;i++){
+						if(plane.aBullet[i].main.offsetLeft + plane.aBullet[i].main.offsetWidth > this.main.offsetLeft){
+							if(plane.aBullet[i].main.offsetLeft < this.main.offsetLeft + this.main.offsetWidth){
+								if(plane.aBullet[i].main.offsetTop < this.main.offsetTop+this.main.offsetHeight){
+									plane.aBullet[i].die();
+									this.hp--
+									if(this.hp <= 0){
+										this.die()
+									}
+								}
+							}
+						}
+					}
+				},30)
+			}
+			die(){
+				let i = 0;
+				clearInterval(this.main.timer);
+				setInterval(()=>{
+					if(i == this.bg){
+						this.main.remove();
+					}else{
+						i++;
+					}
+					this.main.style.backgroundImage = "url(images/plane"+this.type+"_die"+ i +".png)";
+				},100)
+			}
+		}
+		
+		function createDiv(myclass){
+			let div = document.createElement("div");
+			var main = document.getElementById("body_main");
+			div.className = myclass;
+			main.appendChild(div);
+			return div;
+		}
+		function random(a,b){
+			return Math.round(Math.random()*(a-b)+b);
+		}
+		
+	</script>
+</html>

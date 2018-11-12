@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="dahuiji.css"/>
+	</head>
+	<body>
+		<div id="body_main" class="main">
+			<ul id="options" class="options">
+				<li value="1">超级困难</li>
+				<li value="2">非常困难</li>
+				<li value="3">比较困难</li>
+				<li value="4">就选我吧</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		案例分析得出,由四个部分组成:
+//		引擎:初始页面,绑定难度事件,logo,loading
+//		我的飞机:跟随鼠标移动
+//		子弹:我的飞机出来,向上运动,撞到敌机爆炸
+//		敌机:随机从上向下运动,撞到子弹,爆炸,撞到我的飞机,我的飞机爆炸
+
+//		每个部分,写成一个独立的对象
+//		引擎 部分 
+		function Engine(){
+//			首先存属性,存标签
+			this.ele = document.getElementById("body_main");
+			this.abtn = document.getElementById("options").children;
+			this.hard = 0;
+			this.init();
+		}
+		
+		Engine.prototype.init = function(){
+			var that = this;
+			for(var i=0;i<this.abtn.length;i++){
+				this.abtn[i].onclick = (function(index){
+					return function(){
+						that.hard = index;
+						that.loading();
+					}
+				})(i)
+			}
+		}
+		
+		Engine.prototype.loading = function(){
+			var that = this;
+			this.abtn[0].parentNode.remove();
+			var logo = createDiv("logo");
+			var loading = createDiv("loading");
+			var i=1;
+			this.engineTimer = setInterval(function(){
+				loading.style.background = "url(images/loading"+ (i++%3+1) +".png)"
+			},500)
+			
+			var n=0;
+			this.engineBg = setInterval(function(){
+				that.ele.style.backgroundPosition = "0px "+ (n+=3) +"px"
+			},30)
+			
+			setTimeout(function(){
+				clearInterval(that.engineTimer);
+				logo.remove();
+				loading.remove();
+				
+				plane.init(that.ele);
+			},3000)
+		}
+		
+		
+//		我的战机
+		var plane = {
+			init:function(main){
+				this.main = main;
+				var that = this;
+				this.ele = createDiv("my-warplain");
+				this.ele.style.bottom = "0";
+				this.ele.style.left = this.main.offsetWidth/2 - this.ele.offsetWidth/2 + "px";
+				document.onmousemove = function(eve){
+					var e = eve || window.event;
+					that.move(e);
+				}
+			},
+			move:function(e){
+				
+				var l = e.clientX-this.main.offsetLeft-this.ele.offsetWidth/2;
+				var t = e.clientY-this.ele.offsetHeight/2;
+				
+				l = l<0?l=0:l;
+				l = l>this.main.offsetWidth - this.ele.offsetWidth?l=this.main.offsetWidth - this.ele.offsetWidth:l;
+//				if(l<0){
+//					l=0;
+//				}
+				
+				this.ele.style.left = l + "px";
+				this.ele.style.top = t + "px";
+			}
+		}
+		
+		
+		
+		
+		
+		new Engine();
+		
+		function createDiv(myclass){
+			var div = document.createElement("div");
+			div.className = myclass;
+			document.getElementById("body_main").appendChild(div);
+			return div;
+		}
+		
+	</script>
+</html>
