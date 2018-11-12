@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>link1</li>
+			<li>link2</li>
+			<li>link3</li>
+			<li>link4</li>
+			<li>link5</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		var a = 10;
+//		function fn(){};
+		
+//		let a = 10;
+//		console.log(a)
+		
+//		1.let声明的变量不存在提升
+//		console.log(a);
+//		var a = 10;
+//		console.log(a);
+//		let a = 10;
+
+//		2.let声明的变量存在暂时性死区
+//		var a = 10;
+//		function fn(){
+//			console.log(a)
+//			console.log(b)
+//			var b = 20;
+//		}
+//		fn();
+//		console.log(a)
+//		console.log(b)
+//		let a = 10;
+//		function fn(){
+//			console.log(a)
+//			console.log(b)
+//			let b = 20;
+//		}
+//		fn();
+//		console.log(a)
+//		console.log(b)
+		
+//		3.块级作用域1
+//		if(true){
+//			var a = 10;
+//		}
+//		console.log(a)
+//		if(true){
+//			let a = 10;
+//		}
+//		console.log(a)
+		
+//		3.块级作用域2
+//		var ali = document.getElementsByTagName("ul")[0].children;
+//		for(var i=0;i<ali.length;i++){
+//			ali[i].onclick = function(){
+//				console.log(i)
+//			}
+//		}
+//		var ali = document.getElementsByTagName("ul")[0].children;
+//		for(let i=0;i<ali.length;i++){
+//			ali[i].onclick = function(){
+//				console.log(i)
+//			}
+//		}
+//		在for循环中,存在两个作用域(块级),小括号内是作用域A,花括号是作用域B,A包裹B,let会触发块级作用域,所以.....
+//		在for循环中,存在两个作用域(块级),小括号内是作用域A,花括号是作用域B,A包裹B,var不能识别块级作用域,所以.....
+		
+//		4.let声明的变量不能重复声明
+//		var a = 10;
+//		var a = 20;
+//		console.log(a)
+//		let a = 10;
+//		var a = 20;
+//		console.log(a)
+		
+
+
+
+//		let a = 10;
+//		console.log(a)
+//		a = 20;
+//		console.log(a)
+//		const a = 20;
+//		console.log(a)
+//		a = 30;
+//		console.log(a)
+
+		
+		const obj = {
+			name:"admin"
+		}
+		console.log(obj)
+//		obj = {
+//			name:"liyang"
+//		}
+		obj.name = "liyang"
+		console.log(obj)
+	</script>
+</html>

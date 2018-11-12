@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		function Fn(){
+//			this.name = "admin";
+//			this.age = 30;
+//		}
+//		Fn.prototype.show = function(){
+//			console.log(this.age)
+//		}
+//		Fn.prototype.display = function(){
+//			console.log("hello")
+//		}
+//		var fn = new Fn();
+////		console.log(fn.name)
+//		fn.show()
+//		fn.display()
+		
+//		function
+//		class
+//		类 == 构造函数
+		
+		class Fn{
+			constructor(){
+				this.name = "admin";
+				this.age = 30;
+			};
+			show(){
+				console.log(this.name);
+			};
+			display(){
+				console.log(this);
+			};
+		}
+		
+		var fn = new Fn()
+		
+		fn.show()
+		fn.display()
+		
+		
+	</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 400px;margin: 20px auto;border: solid 1px black;text-align: center;}
+			input{margin: 10px 0;}
+			input[type=button]{width: 100px;height: 30px;}
+			span{display: block;height: 30px;}
+			
+			.error{color: red;}
+			.success{color: green;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="user" placeholder="用户名" /><span></span><br />
+			<input type="text" id="pass" placeholder="密码" /><span></span><br />
+			<input type="text" id="pass2" placeholder="确认密码" /><span></span><br />
+			<input type="text" id="tel" placeholder="手机" /><span></span><br />
+			<input type="text" id="mail" placeholder="邮箱" /><span></span><br />
+			<input type="button" id="btn" value="确定" /><span></span><br />
+		</div>
+	</body>
+	<script type="text/javascript">
+//		1.用户名           用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符
+//		2.密码的规则        数字字母特殊字符，一种类型，弱。两种类型为中，三种类型为强
+//		3.重复密码            跟第一次输入 密码一致
+//		4.手机号的验证      第一位必须为1，后面再加10位数字
+//		5.邮箱                数字大小写字母_- 3到12位   @  数字字母 2到9位  . 字母2到5位
+//		6.提交按钮的时候，判断所有输入数据是否符合。符合跳转，否，不跳
+		var ouser = document.getElementById("user")
+		var opass = document.getElementById("pass")
+		var opass2 = document.getElementById("pass2")
+		var otel = document.getElementById("tel")
+		var omail = document.getElementById("mail")
+		var obtn = document.getElementById("btn")
+		var onoff = 0;
+		ouser.onblur = function(){
+//			ouser.value
+			var reg = /^[\u2E80-\u9FFF\w\-]{4,20}$/;
+			if(reg.test(ouser.value)){
+				this.nextElementSibling.innerHTML = "用户名验证成功";
+				this.nextElementSibling.className = "success";
+				onoff++;
+			}else{
+				this.nextElementSibling.className = "error";
+				this.nextElementSibling.innerHTML = "用户名不符合规则"
+			}
+		}
+		opass.onblur = function(){
+			var passOnoff = 0;
+//			opass.value
+			if(opass.value.length>=6 && opass.value.length<=18){
+				var numReg = /\d+/;
+				if(numReg.test(opass.value)){
+					passOnoff++;
+				}
+				var abcReg = /[a-zA-Z]+/;
+				if(abcReg.test(opass.value)){
+					passOnoff++;
+				}
+				var tsReg = /[!@#\$%\^&\*\(\)_\+=\-~`]+/;
+				if(tsReg.test(opass.value)){
+					passOnoff++;
+				}
+				var str = "";
+				switch(passOnoff){
+					case 1:str = "简单";break;
+					case 2:str = "一般";break;
+					case 3:str = "复杂";break;
+				}
+				this.nextElementSibling.innerHTML = str;
+				onoff++;
+			}else{
+				this.nextElementSibling.innerHTML = "长度不符合，6~18位";
+			}
+		}
+		opass2.onblur = function(){
+			if(opass2.value === opass.value){
+				this.nextElementSibling.innerHTML = "密码一致，验证成功";
+				onoff++;
+			}else{
+				this.nextElementSibling.innerHTML = "两次密码不一致";
+			}
+		}
+		
+		obtn.onclick = function(){
+			if(onoff == 3){
+				this.nextElementSibling.innerHTML = "提交成功";
+				window.location.href = "http://www.baidu.com";
+			}else{
+				this.nextElementSibling.innerHTML = "请修改错误信息";
+			}
+		}
+		
+		
+	</script>
+</html>

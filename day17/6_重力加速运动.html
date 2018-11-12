@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 600px;height: 400px;margin: 20px auto;border: solid 2px black;position: relative;}
+			.ball{width: 100px;height: 100px;background: red;border-radius: 50%;position: absolute;top: 0;left: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="ball"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var obox = document.getElementById("box")
+		var oball = document.querySelector(".ball");
+		var speed = 4;	//top的步长
+		var speedL = 10;
+		var timer = null;
+		var target = obox.offsetHeight-4-oball.offsetHeight;		//下边的最大值
+		var targetR = obox.offsetWidth-4-oball.offsetWidth;			//右边的最大值
+		var g = 1;
+		
+		
+		obox.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(()=>{
+				speed = speed + g;
+//				if(oball.offsetTop >= target){
+				if(target - oball.offsetTop < speed){
+					speed = -speed*0.9;
+//					oball.style.top = target + "px";
+					if(Math.abs(speed) < 1){
+						clearInterval(timer)
+					}
+				}else{
+					oball.style.top = oball.offsetTop + speed + "px";
+					oball.style.left = oball.offsetLeft + speedL + "px";
+//					console.log(speed)
+				}
+				
+				if(targetR - oball.offsetLeft < speedL){
+					speedL = -speedL;
+				}
+				if(oball.offsetLeft < 0){
+					speedL = -speedL;
+				}
+				
+			},30)
+		}
+		
+	</script>
+</html>

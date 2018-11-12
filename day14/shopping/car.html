@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" width="600" align="center">
+			<thead>
+				<tr>
+					<td>商品名称</td>
+					<td>货号</td>
+					<td>商品价格</td>
+					<td>商品图片</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<!--<tr>
+					<td>Data</td>
+					<td>Data</td>
+					<td><img src=""/></td>
+					<td><em>删除</em></td>
+				</tr>-->
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4">清空购物车</td>
+					<td>总价：</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+	<script src="libs/cont.js" type="text/javascript" charset="utf-8"></script>
+	<script src="data/goods.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var str = "";
+		
+		for(var i=0;i<json.length;i++){
+			if(getCookie(json[i].goodsId) == json[i].goodsId){
+				str += '<tr>'+
+							'<td>'+json[i].name+'</td>'+
+							'<td>'+json[i].price+'</td>'+
+							'<td><img src="'+json[i].src+'"/></td>'+
+							'<td><em>删除</em></td>'+
+						'</tr>';
+			}
+		}
+		var otbody = document.querySelector("tbody")
+		otbody.innerHTML = str;
+		
+//		getCookie()
+		
+	</script>
+</html>

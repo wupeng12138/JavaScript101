@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#s_box{width: 400px;height: 300px;position: absolute;left: 100px;top: 100px;}
+			#s_box img{width: 400px;height: 300px;}
+			#s_box span{position: absolute;width: 100px;height: 80px;background: url(img/1.jpg);background-size: 400px 300px; left: 0;top: 0;display: none;}
+			#s_box p{margin: 0;position: absolute;left: 0;top: 0;width: 400px;height: 300px;z-index: 9;}
+			
+			#b_box{width: 400px;height: 300px;position: absolute;left: 600px;top: 100px;display: none;overflow: hidden;}
+			#b_box img{position: absolute;left: 0;top: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="s_box">
+			<img src="img/1.jpg"/>
+			<span></span>
+			<p></p>
+		</div>
+		<div id="b_box">
+			<img src="img/1.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oSbox = document.getElementById("s_box");
+		var oSimg = oSbox.children[0];
+		var oBbox = document.getElementById("b_box");
+		var oBimg = oBbox.children[0];
+		var oPbox = document.querySelector("span");
+		
+		oSbox.onmouseover = function(eve){
+			var e = eve || window.event;
+			oPbox.style.display = "block";
+			oBbox.style.display = "block";
+			oSimg.style.opacity = "0.6"
+//			当鼠标进入小盒子的时候,获取坐标,设置span的初始位置
+			var disX = e.offsetX;
+			var disY = e.offsetY;
+			oPbox.style.left = disX-oPbox.offsetWidth/2 + "px";
+			oPbox.style.top = disY-oPbox.offsetHeight/2 + "px";
+			oSbox.onmousemove = function(eve){
+				var e = eve || window.event;
+//				移动过程中拿到坐标
+				var l = e.offsetX-oPbox.offsetWidth/2;
+				var t = e.offsetY-oPbox.offsetHeight/2;
+				if(l<0) l=0;
+				if(l>oSbox.offsetWidth - oPbox.offsetWidth){
+					l=oSbox.offsetWidth - oPbox.offsetWidth;
+				}
+				if(t<0) t=0;
+				if(t>oSbox.offsetHeight - oPbox.offsetHeight){
+					t=oSbox.offsetHeight - oPbox.offsetHeight;
+				}
+//				算出span在小盒子中移动的比例
+				var biliX = l/(oSbox.offsetWidth - oPbox.offsetWidth);
+				var biliY = t/(oSbox.offsetHeight - oPbox.offsetHeight);
+//				设置大盒子中的图片根据span在小盒子中移动的比例,算出的位置
+				oBimg.style.left = -(oBimg.offsetWidth-oBbox.offsetWidth)*biliX + "px";
+				oBimg.style.top = -(oBimg.offsetHeight-oBbox.offsetHeight)*biliY + "px";
+//				升级版的span的背景图的设置，注意空格
+				
+				console.log(l,t)
+				oPbox.style.backgroundPosition = -l + "px "+ -t +"px";
+//				根据移动过程中拿到的坐标,设置span的位置
+				oPbox.style.left = l + "px";
+				oPbox.style.top = t + "px";
+			}
+		}
+		oSbox.onmouseout = function(){
+			oPbox.style.display = "none"
+			oBbox.style.display = "none"
+			oSimg.style.opacity = "1"
+		}
+		
+	</script>
+</html>

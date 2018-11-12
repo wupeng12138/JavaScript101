@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height:100px;background: red;position: absolute;left: 0;top: 0;}
+			span{position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<span>test</span>
+	</body>
+	<script type="text/javascript">
+		var obox = document.getElementById("box");
+		var ospan = document.querySelector("span");
+		
+		document.onclick = function(){
+			move(obox,{"left":100,"top":500},function(){
+				move(obox,{"width":300},function(){
+					move(ospan,{"left":500},function(){
+						document.body.style.background = "pink";
+					})
+				})
+			});
+		}
+		
+		function move(ele,options,callback){
+			clearInterval(ele.timer);
+			ele.timer = setInterval(()=>{
+				var onOff = true;
+				for(let attr in options){
+					if(attr == "opacity"){
+						var iNow = getStyle(ele,attr)*100;
+					}else{
+						var iNow = parseInt(getStyle(ele,attr));
+					}
+					let speed = (options[attr] - iNow)/10;
+					speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+					if(iNow != options[attr]){
+						onOff = false
+					}
+					if(attr == "opacity"){
+						ele.style.opacity = (iNow + speed)/100;
+						ele.style.filter = `alpha(opacity=${iNow+speed})`;
+					}else{
+						ele.style[attr] = iNow + speed + "px";
+					}
+				}
+				if(onOff){
+					clearInterval(ele.timer);
+					if(callback) callback();
+				}
+			},30)
+		}
+		
+		function getStyle(ele,attr){
+			if(ele.currentStyle){
+				return ele.currentStyle[attr];
+			}else{
+				return getComputedStyle(ele,false)[attr];
+			}
+		}
+		
+	</script>
+</html>

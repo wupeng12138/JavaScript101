@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			textarea{height: 550px;width:300px}
+		</style>
+	</head>
+	<body>
+		<textarea id="txt1"></textarea>
+		<input type="button" id="btn" value="转换" />
+		<textarea id="txt2"></textarea>
+	</body>
+	<script type="text/javascript">
+		var otxt1 = document.getElementById("txt1")
+		var obtn = document.getElementById("btn")
+		var otxt2 = document.getElementById("txt2")
+		obtn.onclick = function(){
+			var str = otxt1.value;
+//			var reg = /<.+>/g;		//会发生贪婪特性，匹配所有字符，包含<>
+			var reg = /<[^<>]+>/g;
+			var reg2 = /[\s]+/g;
+			otxt2.value = str.replace(reg,"").replace(reg2,"");
+		}
+		
+		
+//		正则的贪婪特性：尽可能的多匹配
+		
+	</script>
+</html>

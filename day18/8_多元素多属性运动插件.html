@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 1000px;height: 100px;padding: 20px 0;margin: 20px 0;border: solid 1px black;position: relative;}
+			.xbox{width: 100px;height: 100px;background: red;position: absolute;left: 0px;}
+		</style>
+	</head>
+	<body>
+		<div class="box1 box">
+			<div class="xbox1 xbox"></div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var obox1 = document.querySelector(".box1")
+		var oxbox1 = document.querySelector(".xbox1")
+		
+		
+		obox1.onmouseover = function(){
+			move(oxbox1,{"width":120,"height":500})
+		}
+		obox1.onmouseout = function(){
+			move(oxbox1,{"width":100,"height":100})
+		}
+		
+//		封装函数时,参数最好不要超过3个
+		
+		
+		function move(ele,obj){
+			clearInterval(ele.timer);
+			ele.timer = setInterval(()=>{
+				var onOff = true;
+				for(let attr in obj){
+					if(attr == "opacity"){
+						var iNow = getStyle(ele,attr)*100;
+					}else{
+						var iNow = parseInt(getStyle(ele,attr));
+					}
+					var speed = (obj[attr] - iNow)/10;
+					speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+					if(obj[attr] != iNow){
+						onOff = false
+					}
+					if(attr == "opacity"){
+						ele.style.opacity = (iNow + speed)/100;
+						ele.style.filter = `alpha(opacity=${iNow + speed})`;
+					}else{
+						ele.style[attr] = iNow + speed + "px";
+					}
+				}
+				if(onOff == true){
+					clearInterval(ele.timer);
+					console.log("动画结束了")
+				}
+			},30)
+		}
+		
+		
+		function getStyle(ele,attr){
+			if(ele.currentStyle){
+				return ele.currentStyle[attr];
+			}else{
+				return getComputedStyle(ele,false)[attr]
+			}
+		}
+		
+	</script>
+</html>

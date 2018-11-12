@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var str = "hello world";
+		
+//		for(let i in str){
+//			console.log(i)
+//		}
+		
+//		for(let i of str){
+//			console.log(i)
+//		}
+		
+		var json = [{
+			src:"https://img10.360buyimg.com/n2/jfs/t14971/1/464689328/62785/7370ee63/5a2e1b7cN09f86863.jpg!q90.jpg",
+			name:"惠普（HP）光影精灵580 吃鸡游戏台式电脑主机（i5-7400 8G 128GSSD+1T GTX1060 3G独显 三年上",
+			price:"4899.00"
+		}]
+		
+//		var str = '<div class="box">'+
+//						'<img src="' + json[0].src + '"/>'+
+//						'<p>'+ json[0].name +'</p>'+
+//						'<span>'+ json[0].price +'</span>'+
+//					'</div>';
+
+		var str = `<div class="box">
+						<img src="${json[0].src}">
+						<p>${json[0].name}</p>
+						<span>${json[0].price}</span>
+						<p>${1+1}</p>
+						<p>${fn()}</p>
+					</div>`;
+
+		function fn(){
+			return "hello"
+		}
+		
+		document.body.innerHTML = str
+		
+	</script>
+</html>

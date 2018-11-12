@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width:100px;height: 100px;background: red;position: absolute;left: 0;top: 0;}
+			#btn{position: absolute;top: 400px;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<input type="button" name="btn" id="btn" value="开始" />
+	</body>
+	<script type="text/javascript">
+//		动画，运动
+//		一秒切换几张
+		
+//		一秒24张
+		
+//		帧
+		
+//		1000/24 == 62.5
+		var obtn = document.getElementById("btn")
+		var obox = document.querySelector(".box");
+		var timer = null;
+		var target = 500;
+//		1.执行的时间:30
+//		2.步长：一个时间单位走多远
+//		3.停止的位置:终点
+		
+		obtn.onclick = function(){
+			clearInterval(timer);
+			var a = 5;
+			timer = setInterval(function(){
+				if(obox.offsetLeft >= target){
+					clearInterval(timer);
+				}else{
+					obox.style.left = (obox.offsetLeft + a) + "px";
+				}
+			},30)
+		}
+		
+		
+		
+	</script>
+</html>

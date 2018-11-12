@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>link1</li>
+			<li>link2</li>
+			<li>link3</li>
+			<li>link4</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		"use strict"
+		
+//		this不能指向window
+//		
+//		声明变量必须用var
+//		
+//		函数的参数不能重复
+//		
+//		arguments保存的值不能被修改
+//		
+//		不允许通过arguments.callee()自调用
+//		
+//		保留字
+		
+//		ES6之前,ES中的两个方法
+
+//		this指向谁?
+//		根据上下文,决定this指向谁
+		
+//		function fn(){
+//			console.log(this)
+//		}
+//		fn()
+
+//		var obj = {
+//			name:"admin",
+//			show:function(){
+//				console.log(this)
+//			}
+//		}
+//		obj.show();
+
+//		var obj1 = {
+//			name:"admin",
+//			show:function(){
+//				console.log(this)
+//			}
+//		}
+//		var obj2 = {
+//			show:function(){
+//				console.log(this)
+//			}
+//		}
+//		obj1.show()
+//		obj2.show()
+
+//		var obj1 = {
+//			name:"admin",
+//			show:function(){
+//				console.log(this.name)
+//			}
+//		}
+//		var obj2 = {
+//			show:function(){
+//				console.log(this.name)
+//			}
+//		}
+//		obj1.show()
+//		
+//		var a = obj2.show.bind(obj1);
+//		console.log(obj2.show.bind(obj1));//obj2的this指向obj1
+//		obj2.show.bind(obj1)();
+		
+//		改变this的指向
+		
+		
+//		函数的方法
+		
+//		函数的后面
+//		函数.方法()
+//		函数.bind()
+		
+//		obj.show()
+//		Math.abs()
+//		d.getDate()
+//		"hello".split()
+		
+		
+//		var ali = document.querySelectorAll("li");
+//		
+//		for(var i=0;i<ali.length;i++){
+////		ali[i].index = i;
+//			ali[i].onclick = function(){
+//				console.log(this);
+//			}.bind(i);
+//		}
+		
+		
+//		function fn(){
+//			console.log(this)
+//		};
+//		fn.bind(123)();
+		
+//		var father = {
+//			skill:"绝世铁匠",
+//			show:function(){
+//				console.log(this.skill);
+//			}
+//		}
+//		father.show();
+//		
+//		var son = {
+//			show:function(){
+//				console.log(this.skill)
+//			}
+//		}
+//		son.show();
+//		
+////		依赖
+//
+//		son.show.bind(father)();
+
+		var ali = document.querySelectorAll("li");
+		
+//		for(var i=0;i<ali.length;i++){
+//			ali[i].onclick = function(){
+//				var abc = this;
+//				setTimeout(function(){
+//					console.log(abc);
+//					console.log(this)
+//				},1000)
+//			}
+//		}
+		
+//		for(var i=0;i<ali.length;i++){
+//			ali[i].onclick = function(){
+//				console.log(this)
+//				setTimeout(function(){
+//					console.log(this)
+//				}.bind("aaaa"),1000)
+//			}
+//		}
+		
+//		this需要提前保存,保存this的变量,一般叫 _this , 或者that
+		
+	</script>
+</html>

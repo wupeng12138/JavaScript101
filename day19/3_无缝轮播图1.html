@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{width:1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			#imgbox{height: 300px;position: absolute;left: 0px;top: 0;}
+			#imgbox img{float: left;width: 1130px;height: 300px;display: block;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div id="imgbox">
+				<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01ca065abc4a0ea8012062e33cc8a5.jpg@1380w"/>
+				<img src="http://img.zcool.cn/community/01cfd95ab9c887a8012062e3f25c14.png@1380w"/>
+				<img src="http://img.zcool.cn/community/0181fe5ab9c863a801218207eb005a.png@1380w"/>
+			</div>
+		</div>
+		<input type="button" name="next" id="next" value="next" />
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oimgbox = document.getElementById("imgbox");
+		var achild = oimgbox.children;
+		var onext = document.getElementById("next");
+		
+		oimgbox.style.width = achild[0].offsetWidth * achild.length + "px";
+		
+		var iNow = 0;
+		
+		onext.onclick = function(){
+			if(iNow == achild.length-1){
+				iNow = 0;
+			}else{
+				iNow ++;
+			}
+			
+			console.log(iNow)
+			
+			move(oimgbox,{"left":-iNow*achild[0].offsetWidth})
+			
+		}
+		
+		
+	</script>
+</html>

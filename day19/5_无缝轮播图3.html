@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{width:1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			#cont img{width: 1130px;height: 300px;display: block;position: absolute;left: 1130px;}
+			#cont img:nth-child(1){left: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<img src="http://img.zcool.cn/community/0110265abc4a41a8012182074b5e85.jpg@1380w"/>
+			<img src="http://img.zcool.cn/community/01ca065abc4a0ea8012062e33cc8a5.jpg@1380w"/>
+			<img src="http://img.zcool.cn/community/01cfd95ab9c887a8012062e3f25c14.png@1380w"/>
+			<img src="http://img.zcool.cn/community/0181fe5ab9c863a801218207eb005a.png@1380w"/>
+		</div>
+		<input type="button" name="next" id="next" value="next" />
+	</body>
+	<script src="../move.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var ocont = document.getElementById("cont");
+		var achild = ocont.children;
+		var onext = document.getElementById("next");
+		
+		var iNow = 0;
+		var iPrev = achild.length-1;
+		
+		onext.onclick = function(){
+			
+			if(iNow == achild.length-1){
+				iNow = 0;
+				iPrev = achild.length-1;
+			}else{
+				iNow++;
+				iPrev = iNow-1;
+			}
+			
+			console.log(iPrev,iNow);
+			
+			move(achild[iPrev],{"left":-achild[0].offsetWidth})
+			
+			achild[iNow].style.left = achild[0].offsetWidth + "px";
+			move(achild[iNow],{"left":0})
+			
+		}
+		
+		
+	</script>
+</html>

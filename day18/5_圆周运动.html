@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 30px;height: 30px;background: red;position: absolute;left: 0;top: 0;border-radius: 50%;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		var obox = document.getElementById("box");
+		var target = 3600
+		var r = 100;
+		var speed = 10;
+		var timer = null;
+		var deg = 90;
+		
+		document.onclick = function(){
+			clearInterval(timer);
+			timer = setInterval(()=>{
+				
+				deg += speed;
+				
+				if(deg >= target){
+					clearInterval(timer);
+				}else{
+					var y = Math.sin(Math.PI/180*deg) * r;
+					var x = Math.cos(Math.PI/180*deg) * r;
+					var div = document.createElement("div");
+					div.id = "box";
+					div.style.left = x + 300 + "px";
+					div.style.top = y + 300 + "px";
+					document.body.appendChild(div)
+				}
+				
+			},30)
+		}
+		
+	</script>
+</html>

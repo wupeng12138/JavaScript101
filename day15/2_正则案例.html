@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		5.手机号检测
+		
+//		1.qq号验证规则:
+//		1.5到12位，首位不能为0
+//		var reg = /^[1-9][0-9]{4,11}$/;
+//		var str = "704206198101";
+//		console.log(reg.test(str));
+		
+//		2.固化的规则：0411-6666888-02
+//		var reg = /^(0\d{2,3}\-)?[1-9]\d{6}(\-\d{2,3})?$/;
+//		var str = "011-6666888-02";
+//		console.log(reg.test(str));
+		
+//		3.英文数字下划线@一串英文或数子.一串英文
+//		abc23_12acS@10ac00pho00ne.com
+//		var reg = /^\w{2,12}@[\da-z]{2,12}\.[a-z]{2,6}$/i;
+//		var str = "abc23_12acS@10acpho00ne.com";
+//		console.log(reg.test(str));
+		
+//		5.手机号检测前两位必须为13/15/17/18/14/16
+//		var str = "14678910124";
+//		var reg = /^1[3-8]\d{9}$/
+//		console.log(reg.test(str))
+		
+		
+		
+		
+		
+//		jQuery代码：
+//			//验证邮政编码
+//			 $("#postcode").blur(function(){
+//			  //获取邮政编码
+//			  var postcode=$("#postcode").val();
+//			  if(is_postcode(postcode)){
+//			   $("#postcode_info").html("");
+//			  }else{
+//			   $("#postcode_info").html("邮编格式不正确");
+//			   return false;
+//			  }
+//			 });
+//			 //验证手机号码
+//			 $("#mobile").blur(function(){
+//			  //获取手机号,并去除左右两边空格
+//			  var mobile=$.trim($("#mobile").val());
+//			  if(is_mobile(mobile)){
+//			   $("#mobile_info").html("");
+//			  }else{
+//			   $("#mobile_info").html("手机号格式不正确");
+//			   return false;
+//			  }
+//			 });
+//			 //验证email
+//			 $("#email").blur(function(){
+//			  //获取email
+//			  var email=$("#email").val();
+//			  if(is_email(email)){
+//			   $("#email_info").html("");
+//			  }else{
+//			   $("#email_info").html("电子邮件格式不正确");
+//			   return false;
+//			  }
+//			 });
+//			});
+//			
+//			
+//		js代码：
+//		
+//			//订单提交页-验证邮政编码
+//			function is_postcode(postcode) {
+//			 if ( postcode == "") {
+//			  return false;
+//			 } else {
+//			  if (! /^[0-9][0-9]{5}$/.test(postcode)) {
+//			   return false;
+//			  }
+//			 }
+//			 return true;
+//			}
+//			//订单提交页-验证手机号
+//			function is_mobile(mobile) {
+//			  if( mobile == "") {
+//			  return false;
+//			  } else {
+//			  if( ! /^0{0,1}(13[0-9]|15[0-9]|18[0-9]|14[0-9])[0-9]{8}$/.test(mobile) ) {
+//			  return false;
+//			  }
+//			  return true;
+//			 }
+//			}
+//			//订单提交页-验证email的合法性
+//			function is_email(email) {
+//			 if ( email == "") {
+//			  return false;
+//			 } else {
+//			  if (! /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/.test(email)) {
+//			   return false;
+//			  }
+//			 }
+//			 return true;
+//			}
+		
+		
+		
+//		普通数组 升序
+//		var arr = [4,3,6,5,7,2,1];
+//		arr.sort();
+//		console.log(arr);
+//		//输出结果[1,2,3,4,5,6,7]
+//		
+//		普通数据 降序
+//		var arr = [4,3,6,5,7,2,1];
+//		arr.sort();
+//		arr.sort(function(a,b){
+//		    return b-a;
+//		});
+//		console.log(arr);
+//		//输出结果[7,6,5,4,3,2,1]
+
+
+
+		
+//		编写一个参数JavaScript函数parseQueryString，它的用途是把url参数解析为一个对象
+		
+
+//          function parseQueryString(argu){
+//            var str = argu.split('?')[1];
+//            var result = {};
+//            var temp = str.split('&');
+//            for(var i=0; i<temp.length; i++)
+//            {
+//               var temp2 = temp[i].split('=');
+//               result[temp2[0]] = temp2[1];
+//            }
+//            return result;
+//          }
+//          var url = "http://www.taobao.com/index.php?key=123456&name=xiangruding&value=20170308&mid=1830246&token=loyyehkvk";
+//          var obj = parseQueryString(url);
+//          console.log(obj);
+//          console.log("mid: "+obj.mid);
+//          
+//          //对象转换成字符串
+//          var arr1=JSON.stringify(obj)
+//          console.log(arr1);
+//          
+//          //将字符串转换成对象 
+//          var zobj=JSON.parse(arr1)
+//          console.log(zobj);
+
+		
+		
+		
+//		请根据下面的描述，用JSON语法编写一个对象: “小明今年22岁，来自杭州。兴趣是看电影和旅游。他有两个姐姐，一个叫小芬，今年25岁，职业是护士。还有一个叫小芳，今年23岁，是一名小学老师。”
+//		var person = {
+//		    name: '小明',
+//		    age: '22',
+//		    city: '杭州',
+//		    hobbies: ['电影', '旅游'],
+//		    sisters: [{
+//		            name: '小芬',
+//		            age: 25,
+//		            job: '护士'
+//		        },
+//		        {
+//		            name: '小芳',
+//		            age: 23,
+//		            job: '小学老师'
+//		        }
+//		    ]
+//		}
+
+
+//		function test(){
+//			console.log(a);
+//			console.log(foo());
+//			var a = 1;
+//			function foo(){
+//				return 2;
+//			}
+//		}
+//		
+//		test();
+//		结果：	undefined
+//				2
+		
+		
+		
+
+//		请指出下面代码中不符合xHTML 1.0规范的地方，说明理由，并写出改善后的代码：
+//		<h1><p>小明的表白</p></h1>
+//		<dl>
+//		        <dt><p><div>小明说：</div></p></dt>
+//		        <dd>”淘宝网，<i>天天上</i>。”</dd>
+//		        <dd><b>”淘我喜欢！” </b></dd>
+//		</dl>
+		
+//		答:
+//			h1标签不能嵌套p标签
+//			dt标签不能嵌套p和div标签
+//			同时p标签不能嵌套div标签
+//			i标签用em标签替换
+//			b标签用strong标签替换
+//			<h1>小明的表白</h1>
+//			<dl>
+//			        <dt>小明说：</dt>
+//			        <dd>”淘宝网，<em>天天上</em>。”</dd>
+//			        <dd><strong>”淘我喜欢！” </strong></dd>
+//			</dl>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

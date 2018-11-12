@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 400px;height: 400px;background: red;opacity: 1;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		var obox = document.getElementById("box")
+		var speed = 7;			//步长
+		var target1 = 20;		//进入的目标
+		var target2 = 100;		//离开的目标
+		var opacity = 100;		//当前
+		var timer = null;
+//		obox.offsetLeft
+//		obox.offsetTop
+		obox.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(()=>{
+				if(opacity <= target1){
+					clearInterval(timer);
+				}else{
+					opacity -= speed;
+					obox.style.opacity = opacity/100;
+					obox.style.filter = "alpha(opacity="+opacity+")";
+				}
+			},30)
+		}
+		
+		obox.onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(()=>{
+				if(opacity >= target2){
+					clearInterval(timer);
+				}else{
+					opacity += speed;
+					obox.style.opacity = opacity/100;
+					obox.style.filter = "alpha(opacity="+opacity+")";
+				}
+			},30)
+		}
+	</script>
+</html>

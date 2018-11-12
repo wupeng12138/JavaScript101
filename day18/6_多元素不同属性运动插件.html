@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{width: 1000px;height: 100px;padding: 20px 0;margin: 20px 0;border: solid 1px black;position: relative;}
+			.xbox{width: 100px;height: 100px;background: red;position: absolute;left: 0px;}
+		</style>
+	</head>
+	<body>
+		<div class="box1 box">
+			<div class="xbox1 xbox"></div>
+		</div>
+		<div class="box2 box">
+			<div class="xbox2 xbox"></div>
+		</div>
+		<div class="box3 box">
+			<div class="xbox3 xbox"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var obox1 = document.querySelector(".box1")
+		var obox2 = document.querySelector(".box2")
+		var obox3 = document.querySelector(".box3")
+		var oxbox1 = document.querySelector(".xbox1")
+		var oxbox2 = document.querySelector(".xbox2")
+		var oxbox3 = document.querySelector(".xbox3")
+		
+		obox1.onmouseover = function(){
+			move(oxbox1,"top",500)
+		}
+		obox1.onmouseout = function(){
+			move(oxbox1,"top",0)
+		}
+		
+		obox2.onmouseover = function(){
+			move(oxbox2,"opacity",20)
+		}
+		obox2.onmouseout = function(){
+			move(oxbox2,"opacity",100)
+		}
+//		
+		obox3.onmouseover = function(){
+			move(oxbox3,"width",900)
+		}
+		obox3.onmouseout = function(){
+			move(oxbox3,"width",100)
+		}
+		
+		function move(ele,attr,target){
+			
+			clearInterval(ele.timer);
+			ele.timer = setInterval(()=>{
+				
+				var speed = (target - parseInt(getStyle(ele,attr)))/10;
+				speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+				
+				if(target == parseInt(getStyle(ele,attr))){
+					clearInterval(ele.timer);
+				}else{
+					ele.style[attr] = parseInt(getStyle(ele,attr)) + speed + "px";
+				}
+				
+			},30)
+			
+		}
+		
+//		console.log(parseInt(getStyle(oxbox1,"opacity")));
+//		console.log(oxbox1.offsetLeft);
+		
+		function getStyle(ele,attr){
+			if(ele.currentStyle){
+				return ele.currentStyle[attr];
+			}else{
+				return getComputedStyle(ele,false)[attr]
+			}
+		}
+		
+	</script>
+</html>

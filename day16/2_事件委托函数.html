@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>link1</li>
+			<li>link2</li>
+			<li>link3</li>
+			<li>link4</li>
+			<li>link5</li>
+			<li>link6</li>
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<p>p4</p>
+		</ul>
+	</body>
+	<script type="text/javascript">
+//		var oul = document.querySelector("ul");
+//		
+//		oul.onclick = function(eve){
+//			var e = eve || window.event;
+//			var target = e.srcElement || e.target;
+//			if(target){
+//				console.log(this);
+//			}
+//		}
+//		
+//		
+////		父级,子级,函数
+//		var oli = oul.getElementsByTagName("li")[3];
+//		
+//		eventEntru(oul,oli,function(){
+////			document.body.style.background = "red";
+//			console.log(this);
+//		})
+//		
+//		function eventEntru(father,target,fn){
+////			console.log(father)
+////			console.log(target)
+////			console.log(fn)
+////			fn()
+////			for(var i=0;i<ali.length;i++){
+//				father.onclick = function(eve){
+//					var e = eve || window.event;
+//					var src = e.target || e.srcElement;
+//					if(src == target){
+//						fn.bind(src)()
+//					}
+//				}
+////			}
+//		}
+		
+//		回调函数：把函数a作为参数传到另一个函数b中，a叫回调函数，在b中可以执行函数a
+		
+		var oul = document.querySelector("ul");
+		var oli = oul.getElementsByTagName("li")[2];
+		
+//		oul.onclick = function(e){
+//			if(e.target == oli){
+//				console.log(e.target.innerHTML)
+//			}
+//		}
+		eventEntru(oul,oli,function(){
+			console.log(this)
+		})
+		
+		function eventEntru(father,son,fn){
+			father.onclick = function(e){
+				if(e.target == son){
+					fn.bind(e.target)();
+				}
+			}
+		}
+		
+		
+	</script>
+</html>
