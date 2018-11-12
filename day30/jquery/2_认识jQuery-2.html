@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.mysql{font-size: 30px;}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value="" />
+		<input type="button" name="" id="btn" value="搜索" />
+		<div id="box" class="box">
+			<p>html</p>
+			<p class="php">php</p>
+			<p class="mysql" id="list">mysql</p>
+			<p>javascript</p>
+			<p>html+php</p>
+		</div>
+		<input type="button" name="btn2" id="btn2" value="切换" />
+		<div id="box" class="box">
+			<p>html</p>
+			<p>php</p>
+			<p style="display: none;">mysql</p>
+			<p>javascript</p>
+			<p>html+php</p>
+		</div>
+		<div id="box" class="box">
+			<p>html</p>
+			<p class="php">php</p>
+			<p>mysql</p>
+			<p>javascript</p>
+			<p>html+php</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		$("#btn").get(0).onclick = function(){			//先转原生js再点击事件
+//			$("#box p:contains("+ $("#txt").val() +")").css({
+//				background:"red"
+//			})
+//		}
+		
+//		$('.box:has(.php)').css({background:"#ccc"})
+//		$('.box').has(".php").css({background:"#ccc"})
+
+//		$(".box:eq(1) p:visible").css({background:"#ccc"})
+//		$(".box:eq(1) p:hidden").css({background:"red"})
+
+//		console.log($("#box p:eq(2)").is("#list"))
+//		console.log($("#box p:eq(2)").hasClass("mysql"))
+
+//		$("#btn2").get(0).onclick = function(){
+//			if($("#box p:eq(2)").is(".mysql")){
+//				$("#box p:eq(2)").removeClass("mysql");
+//			}else{
+//				$("#box p:eq(2)").addClass("mysql");
+//			}
+//		}
+	</script>
+</html>

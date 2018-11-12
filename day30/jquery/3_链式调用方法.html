@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Fn(){
+		}
+		Fn.prototype.show1 = function(){
+			console.log(1);
+			return this;
+		}
+		Fn.prototype.show2 = function(){
+			console.log(2);
+			return this;
+		}
+		Fn.prototype.show3 = function(){
+			console.log(3);
+			return this;
+		}
+		
+		
+		console.log(new Fn().show1().show2().show3())
+		console.log(new Fn())
+	</script>
+</html>
