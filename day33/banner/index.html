@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			#cont{width: 1200px;height: 300px;position: relative;margin: 20px auto;overflow: hidden;}
+			#cont ul{position: relative;}
+			#cont li{width: 1200px;height: 300px;position: absolute;}
+			#cont li img{display: block;width: 100%;height: 300px;}
+			
+			#cont p{position: absolute;bottom: 0;width: 100%;}
+			#cont span{width: 25%;background: rgba(100,100,100,0.6);display: block;float: left;height: 40px;text-align: center;line-height: 40px;box-sizing: border-box;border-right: solid 1px black;border-left: solid 1px black;}
+			#cont span.active{background: rgba(255,0,0,0.6);}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<ul>
+				<li><img src="http://img.zcool.cn/community/01f5445a586c6aa8012113c7fe9c8d.jpg@1380w"/></li>
+				<li><img src="http://img.zcool.cn/community/01e3615a5816e5a80120121fb50532.jpg@1380w"/></li>
+				<li><img src="http://img.zcool.cn/community/0100dd5a56e331a80120121fc3a683.jpg@1380w"/></li>
+				<li><img src="http://img.zcool.cn/community/01c4165a56e341a8012113c7c68c2e.jpg@1380w"/></li>
+			</ul>
+			<p>
+				<span class="active">0</span>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+			</p>
+			<div class="box">
+				<div id="prev">left</div>
+				<div id="next">right</div>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jQuery.banner.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#cont").banner({
+			imgs:$("#cont").find("li"),
+			items:$("#cont p").find("span"),
+//			left:$("#cont .box").find("#prev"),
+//			right:$("#cont .box").find("#next")
+		});
+	</script>
+</html>

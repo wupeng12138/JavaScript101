@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			.cont{width: 1130px;height: 300px;margin: 30px auto;position: relative;overflow: hidden;}
+			.cont li{width: 1130px;height: 300px;position: absolute;left: 0;top: 0;}
+			.cont li img{width: 100%;height: 100%;}
+			
+			.btns input{width: 60px;height: 40px;background: rgba(255,255,255,0.6);position: absolute;top: 130px;border: none;}
+			.btns input:first-child{left: 0;}
+			.btns input:last-child{right: 0;}
+			
+			/*.list{position: absolute;bottom: 0;width: 100%;display: flex;}
+			.list span{flex: 1;line-height: 40px;background: rgba(255,255,255,0.5);text-align: center;border-right: solid 1px #aaa;border-left: solid 1px #aaa;}
+			.list span.active{background: rgba(255,0,0,0.6) !important;}*/
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul>
+				<li><a href="##"><img src="http://img.zcool.cn/community/0196425ad6a5dda8012040291b1087.jpg@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01b9b45ad55bbaa801213867ef6fa9.png@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01882f5ad6a5fea8012138679a6adf.jpg@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01d49d5ad55bada801204029e57c2e.png@1380w"/></a></li>
+			</ul>
+			<div class="btns">
+				<input type="button" name="" id="prev1" value="<<<" />
+				<input type="button" name="" id="next1" value=">>>" />
+			</div>
+		</div>
+		<div class="cont">
+			<ul>
+				<li><a href="##"><img src="http://img.zcool.cn/community/0196425ad6a5dda8012040291b1087.jpg@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01b9b45ad55bbaa801213867ef6fa9.png@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01882f5ad6a5fea8012138679a6adf.jpg@1380w"/></a></li>
+				<li><a href="##"><img src="http://img.zcool.cn/community/01d49d5ad55bada801204029e57c2e.png@1380w"/></a></li>
+			</ul>
+			<div class="btns">
+				<input type="button" name="" id="prev2" value="<<<" />
+				<input type="button" name="" id="next2" value=">>>" />
+			</div>
+			<!--<div class="list">
+				<span class="active">0</span>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+			</div>-->
+		</div>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.banner.2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".cont").eq(0).banner({
+			imgs:$(".cont").eq(0).find("li"),
+			left:$(".cont").eq(0).find("#prev1"),
+			right:$(".cont").eq(0).find("#next1"),
+			autoPlay:true,
+			list:true,
+			playTime:1000
+		})
+		
+		$(".cont").eq(1).banner({
+			imgs:$(".cont").eq(1).find("li"),
+			left:$(".cont").eq(1).find("#prev2"),
+			right:$(".cont").eq(1).find("#next2"),
+			list:true,
+			autoPlay:false
+		})
+	</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="libs/require.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		console.dir(require)
+//		console.dir(requirejs)
+//		console.dir(define)
+//		require()		//引入模块，加载模块
+//		define()		//定义模块，创建模块
+		
+		require(["moduls/tab","moduls/nav"],function(tab,nav){
+//			console.log(tab)
+			tab.show("liyang")
+			
+//			console.log(nav)
+
+			nav.init({
+				name:"liyang",
+				age:"18",
+				sex:"1",
+				like:"女"
+			})
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			.nav{width: 100%;height: 60px;border: solid 1px #aaa;box-sizing: border-box;text-align: center;margin-bottom: 150px;}
+			.nav>ul{height: 58px;display: flex;}
+			.nav>ul>li{flex: 1;border-right: solid 1px #aaa;line-height: 58px;}
+			
+			.nav span{display: block;}
+			.nav>ul>li ul{border: solid 1px #ccc;border-top: none;display: none;}
+			.nav>ul>li li{border-bottom: solid 1px #ccc;}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="nav">
+			<ul>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+				<li><span>一级菜单</span>
+					<ul>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+						<li>二级菜单</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		function $(){
+//			return "hello world"
+//		}
+	</script>
+	<script src="jquery.nav.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+//		$.nav($(".nav").eq(0))
+//		$.nav($(".nav").eq(1))
+		
+//		$.nav()
+		
+		$(".nav").eq(0).nav()
+		
+//		$(".nav").eq(1).nav()
+		
+//		$("form").eq(0).validate()
+		
+//		$(function(){
+//			$(".nav>ul").children("li").on("mouseenter",function(){
+//				$(this).children("ul").stop().slideDown(100)
+//				.end().siblings().children("ul").stop().slideUp(100)
+//			})
+//			$(".nav>ul").children("li").on("mouseleave",function(){
+//				$(".nav li").children("ul").stop().slideUp(100)
+//			})
+//		})
+	</script>
+</html>

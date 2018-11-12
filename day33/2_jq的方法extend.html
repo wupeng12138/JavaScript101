@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var obj1 = {
+			liyang1:"admin",
+			liyangliyangliyang:18,
+			ajax:function(){
+				console.log("hello this is new ajax")
+			}
+		}
+		var obj2 = {
+			liyang2:"18"
+		}
+		console.log(obj1)
+		console.log(obj2)
+		
+//		合并对象：把两个对象合成一个
+//		可以接收一个参数和两个参数
+//		一个参数：将这个对象合并到jquery对象的身上
+//				在jquery对象身上新增一个obj1对象的属性
+//		$.extend(obj1);
+		
+//		console.log($.liyang1)
+//		console.dir($)
+		
+//		两个参数的时候:将第二个对象合并到第一个对象身上
+		var obj3 = $.extend(obj1,obj2);
+		
+		console.log(obj1)
+		console.log(obj2)
+		console.log(obj3)
+		
+		console.log(obj1.liyang2)
+		
+	</script>
+</html>

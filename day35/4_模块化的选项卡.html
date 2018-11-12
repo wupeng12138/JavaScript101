@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			.cont{width: 400px;height: 600px;margin: 0 auto;border: solid 1px black;}
+			.cont ul{height: 40px;border-bottom: solid 1px black;}
+			.cont li{float: left;width: 80px;border-right: solid 1px black;text-align: center;line-height: 40px;}
+			.cont li.active{background: #ccc;}
+			.box{position: relative;height: 559px;}
+			.box img{position: absolute;left: 0;top: 0;width: 100%;height: 100%;display: none;}
+			.box img.active{display: block;}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<div class="box">
+				<img class="active" src="http://t12.baidu.com/it/u=1462003370,2461546563&fm=173&app=25&f=JPEG?w=640&h=1390&s=2E08722311CC58EB5CDDA4DF0000C0B1"/>
+				<img src="http://t11.baidu.com/it/u=4934308,1246773593&fm=173&app=25&f=JPEG?w=480&h=1478&s=4218682BDFFC598218FCE5DA0100C0B2"/>
+				<img src="http://t10.baidu.com/it/u=4244117475,2796197812&fm=173&app=25&f=JPEG?w=640&h=652&s=6BBAAC43C23E77ADBFBC29E303003070"/>
+			</div>
+		</div>
+	</body>
+	<script src="libs/require.js" data-main="modules/app"></script>
+	<!--<script src="modules/app.js" type="text/javascript" charset="utf-8"></script>-->
+	<script type="text/javascript">
+//		tab切换
+//		点击对应图片弹出模态框
+	</script>
+</html>

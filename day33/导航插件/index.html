@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			#box{width: 90%;height: 60px;background: #CCCCCC;margin: 0 auto;}
+			#box>ul{display: flex;height: 60px;}
+			#box>ul>li{float: left;flex: 1;text-align: center;background: ;border-right: solid 1px #aaa;line-height: 60px;}
+			#box span{display: block;}
+			#box>ul>li>ul{display: none;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<span>index</span>
+					<ul>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+					</ul>
+				</li>
+				<li>
+					<span>index</span>
+					<ul>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+					</ul>
+				</li>
+				<li>
+					<span>index</span>
+					<ul>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+					</ul>
+				</li>
+				<li>
+					<span>index</span>
+					<ul>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+					</ul>
+				</li>
+				<li>
+					<span>index</span>
+					<ul>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+						<li>child page</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jQuery.nav.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#box").nav()
+	</script>
+</html>
