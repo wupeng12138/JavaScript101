@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<input type="button" name="btn" id="btn" value="判断" />
+	</body>
+	<script type="text/javascript">
+//		if(){
+//			
+//		}else if(){
+//			
+//		}else if(){
+//			
+//		}else if(){
+//			
+//		}else{
+//			
+//		}
+//			if(){}
+
+//		多分支语句:
+//		switch(){}
+//			switch是多分支语句
+//			()要判断的值
+//			{}执行语句
+		var txt = document.getElementById("txt")
+		var btn = document.getElementById("btn")
+		
+		btn.onclick = function(){
+			var num = parseInt(txt.value);
+			switch(num){
+				case 0:
+					console.log("星期日");
+					break;
+				case 1:
+					console.log("星期一");
+					break;
+				case 2:
+					console.log("星期二");
+					break;
+				case 3:
+					console.log("星期三");
+					break;
+				case 4:
+					console.log("星期四");
+					break;
+				case 5:
+					console.log("星期五");
+					break;
+				case 6:
+					console.log("星期六");
+					break;
+				default:
+					console.log("请输入0~6的数字");
+			}
+		}
+		
+		
+		
+//		case:判断条件；case的穿透特性，BUG
+//		break:用来阻止case穿透
+//		defaule:当要判断的值,不符合所有的case的时候，执行default后面的代码
+		
+		
+	</script>
+</html>

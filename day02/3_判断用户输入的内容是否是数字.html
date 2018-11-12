@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt" value="hello" />
+		<input type="button" id="btn" value="验证" />
+	</body>
+	<script type="text/javascript">
+		
+		var txt = document.getElementById("txt");	//js中的ID选择器
+		
+//		console.log(txt);
+//		console.log(txt.value);		//获取input标签的value
+//		var a = isNaN(txt.value)	//判断input的value是否为数字
+//		console.log(a);
+		
+		var btn = document.getElementById("btn");
+		
+		
+		btn.onclick = function(){	//给一个元素添加点击事件
+			//点击这个元素的时候需要做一些什么事
+			//点击事件的事件处理函数
+			var txtV = txt.value;		//需要在点击的时候，才获取输入框的value，不能提前获取
+//			console.log(txtV);
+			console.log(isNaN(txtV));
+			alert(isNaN(txtV));
+		}
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="txt1" value="" />
+		+
+		<input type="text" name="" id="txt2" value="" />
+		<input type="button" name="" id="btn1" value="=" />
+		<input type="text" name="" id="txt3" value="" /><br />
+		<input type="text" name="" id="txt4" value="" />
+		-
+		<input type="text" name="" id="txt5" value="" />
+		<input type="button" name="" id="btn2" value="=" />
+		<input type="text" name="" id="txt6" value="" />
+	</body>
+	<script type="text/javascript">
+		var txt1 = document.getElementById("txt1");
+		var txt2 = document.getElementById("txt2");
+		var txt3 = document.getElementById("txt3");
+		var btn1 = document.getElementById("btn1");
+		
+		btn1.onclick = function(){
+			
+			var sum = parseInt(txt1.value) + parseInt(txt2.value);
+//			console.log(typeof txt1.value)
+			console.log(sum);
+			
+			txt3.value = sum;
+			
+		}
+
+		var txt4 = document.getElementById("txt4");
+		var txt5 = document.getElementById("txt5");
+		var txt6 = document.getElementById("txt6");
+		var btn2 = document.getElementById("btn2");
+		
+		btn2.onclick = function(){
+			
+			var sum = parseInt(txt4.value) - parseInt(txt5.value);
+//			console.log(typeof txt1.value)
+			console.log(sum);
+			
+			txt6.value = sum;
+			
+		}
+		
+	</script>
+</html>

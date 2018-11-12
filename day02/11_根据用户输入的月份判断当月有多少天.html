@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="year" id="year" value="" />
+		<input type="text" name="month" id="month" value="" />
+		<input type="button" name="btn" id="btn" value="判断" />
+	</body>
+	<script type="text/javascript">
+		var year = document.getElementById("year")
+		var month = document.getElementById("month")
+		var btn = document.getElementById("btn")
+		
+		btn.onclick = function(){
+			var y = year.value;
+			var m = parseInt(month.value);
+//			第三版
+			var msg = "";
+			switch(m){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					msg = "31天";
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					msg = "30天";
+					break;
+				case 2:
+					if(y%4==0 && y%100 != 0 || y%400 == 0){
+						msg = "29天";
+					}else{
+						msg = "28天";
+					}
+					break;
+				default:
+					msg = "请输入一个1——12的月份";
+			}
+			alert(msg);
+			
+			
+//			第二版switch
+//			switch(m){
+//				case 1:
+//				case 3:
+//				case 5:
+//				case 7:
+//				case 8:
+//				case 10:
+//				case 12:
+//					console.log("31天")
+//					break;
+//				case 4:
+//				case 6:
+//				case 9:
+//				case 11:
+//					console.log("30天")
+//					break;
+//				case 2:
+//					if(y%4==0 && y%100 != 0 || y%400 == 0){
+//						console.log("29天")
+//					}else{
+//						console.log("28天")
+//					}
+//					break;
+//				default:
+//					console.log("请输入一个1——12的月份");
+//			}
+			
+			
+//			初版switch
+//			switch(m){
+//				case 1:
+//					console.log("31天");
+//					break;
+//				case 2:
+//					if(y%4==0 && y%100 != 0 || y%400 == 0){
+//						console.log("29天")
+//					}else{
+//						console.log("28天")
+//					}
+//					break;
+//				case 3:
+//					console.log("31天")
+//					break;
+//				case 4:
+//					console.log("30天")
+//					break;
+//				case 5:
+//					console.log("31天")
+//					break;
+//				case 6:
+//					console.log("30天")
+//					break;
+//				case 7:
+//					console.log("31天")
+//					break;
+//				case 8:
+//					console.log("31天")
+//					break;
+//				case 9:
+//					console.log("30天")
+//					break;
+//				case 10:
+//					console.log("31天")
+//					break;
+//				case 11:
+//					console.log("30天")
+//					break;
+//				case 12:
+//					console.log("31天")
+//					break;
+//				default:
+//					console.log("请输入一个1——12的月份");
+//			}
+		}
+	</script>
+</html>
