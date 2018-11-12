@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var a = null;
+		var b = null;
+		var c = null;
+		
+		a = setInterval(function(){
+			console.log("hello")
+		},500)
+		
+		b = setInterval(function(){
+			console.log("world")
+		},700)
+		
+		c = setTimeout(function(){
+			console.log("延时器")
+		},5000)
+		
+		
+		document.onclick = function(){
+			clearInterval(1);
+			console.log(a);
+			
+			clearInterval(2);
+			console.log(b);
+			
+			clearTimeout(3)
+			console.log(c)
+			
+		}
+		
+	</script>
+</html>

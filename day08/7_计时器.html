@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			time{display: block;width: 200px;height: 200px;background: #ccc;text-align: center;font: 50px/200px "微软雅黑";margin: 50px auto;}
+			#btn{display: block;margin: 0 auto;width: 100px;height: 40px;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<time id="time">3</time>
+		<input type="button" name="btn" id="btn" value="开始" />
+	</body>
+	<script src="../cont.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var obox = document.getElementById("box")
+		obox.innerHTML = formatDate();
+		setInterval(function(){
+			obox.innerHTML = formatDate();
+		},1000);
+		
+//		计时器:
+//			setInterval()接受两个参数
+//				1.函数
+//				2.时间
+//				每隔一定的时间,执行函数
+//			setTimeout()接受两个参数
+//				1.函数
+//				2.时间
+//				延迟一定的时间后,只执行一次函数
+		
+		var otime = document.getElementById("time");
+		var obtn = document.getElementById("btn");
+		var timer = null;
+		var onOff = 1;
+		var num = otime.innerHTML;
+		
+		obtn.onclick = function(){
+			if(onOff == 1){
+				obtn.value = "暂停"
+				clearInterval(timer);
+				timer = setInterval(function(){
+					otime.innerHTML--;
+					if(otime.innerHTML == 0){
+						clearInterval(timer);
+						otime.innerHTML = "结束了";
+
+						setTimeout(function(){
+							otime.innerHTML = "3";
+						},1000)
+						
+						obtn.value = "开始"
+						onOff = 1;
+					}
+				},1000)
+				onOff = 2;
+			}else{
+				obtn.value = "开始"
+				clearInterval(timer);
+				onOff = 1;
+			}
+		}
+		
+		
+		
+//		setTimeout(function(){
+//			alert("hello")
+//		},3000)
+		
+		
+	</script>
+</html>

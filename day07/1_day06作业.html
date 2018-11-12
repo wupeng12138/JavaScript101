@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		使用JSON形式创建一个对象，该对象存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息
+//		var json = [{
+//			name:"zhangsan",
+//			userId:01,
+//			idCard:1111111,
+//			age:18,
+//			sex:0,
+//			skill:"计算机",
+//			show:function(){
+//				console.log(json[0].name + json[0].userId)
+//			}
+//		},{
+//			name:"zhangsan",
+//			userId:01,
+//			idCard:1111111,
+//			age:18,
+//			sex:0,
+//			skill:"计算机",
+//			show:function(){
+//				console.log(json[0].name + json[0].userId)
+//			}
+//		},{
+//			name:"zhangsan",
+//			userId:01,
+//			idCard:1111111,
+//			age:18,
+//			sex:0,
+//			skill:"计算机",
+//			show:function(){
+//				console.log(json[0].name + json[0].userId)
+//			}
+//		}]
+//		json[0].show();
+		
+//		.有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+//		var arr = [2,3,4,6,7,8,9];
+//		function fn(arr,num){
+//			for(var i=0;i<arr.length;i++){
+//				if(num<arr[i]){
+//					break;
+//				}
+//			}
+//			console.log(i);
+//			for(var j=arr.length;j>i;j--){
+//				arr[j] = arr[j-1];
+//			}
+//			arr[i] = num;
+//			console.log(arr);
+//		}
+//		fn(arr,10);
+		
+//		随机点名
+		var arr = ["张三","李四","王二","admin"];
+		var random = Math.round(Math.random()*(arr.length-1))
+		for(var i=0;i<arr.length;i++){
+			if(random == i){
+				console.log(arr[i]);
+			}
+		}
+		
+	</script>
+</html>

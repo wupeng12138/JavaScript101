@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;}
+		</style>
+		<script type="text/javascript">
+	//		window.onload = function(){
+	//			console.log(1)
+	//		}
+	
+//			var obox = document.getElementById("box");
+//			
+//			console.log(obox)
+			
+//			obox.innerHTML = "hello";
+//			window.onload = function(){
+//				
+//				var obox = document.getElementById("box")
+//				
+//				console.log(obox)
+//				
+//				obox.innerHTML = "world"
+//				
+//			}
+//			
+//			window.onresize = function(){
+//				console.log(1)
+//			}
+//			
+//			window.onscroll = function(){
+////				console.log("aaa")
+//				
+////				滚动条距离页面顶部或左边的距离
+////				console.log(document.body.scrollTop)
+////				console.log(document.documentElement.scrollTop)
+//				
+//				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//				
+//				console.log(scrollTop);
+//				
+//			}
+			
+			onload = function(){
+				var timer = null;
+				
+				document.onclick = function(){
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					
+					timer = setInterval(function(){
+						
+						scrollTop = scrollTop - 100;
+						
+						document.documentElement.scrollTop = scrollTop;
+						document.body.scrollTop = scrollTop;
+						
+						if(scrollTop<=0){
+							clearInterval(timer);
+						}
+						
+						console.log(scrollTop)
+					},100)
+					
+					
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body style="height: 3000px;width: 3000px;">
+		<div id="box"></div>
+	</body>
+</html>

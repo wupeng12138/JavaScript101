@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			这是一个div
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		
+//		console.log(typeof oBox);
+
+		console.dir(oBox)
+		
+		console.log(oBox.innerHTML);
+		
+		oBox.innerHTML = "<strong>这是后来添加的文字</strong>"
+		
+		console.log(oBox.innerHTML);
+	</script>
+</html>

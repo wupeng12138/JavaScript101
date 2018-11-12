@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		打开严格模式
+		"use strict"
+//		html4或者xhtml2
+//		html5
+		
+//		css2
+//		css3
+		
+//		javascript1.0
+//		ECMAScript4.0====ES4
+//		ECMAScript5.0====ES5
+//		ECMAScript6.0====ES6
+//		ECMAScript7.0====ES7
+		
+//		在ES5中js语法新增了一种模式,严格模式
+//		语法更严格,更标准,减少不合理之处
+//		var a = 10;
+//		b = 10;
+//		function fn(){
+//			"use strict"
+//		}
+//		fn();
+		
+//		var a = 10;
+//		b = 20;
+//		
+//		console.log(a)
+//		console.log(b)
+
+//		function fn(){
+//			console.log(this);
+//		}
+//		fn();
+		
+//		var obj = {
+//			name:"obj",
+//			show:function(){
+//				console.log(this)
+//			}
+//		}
+//		obj.show()
+		
+//		function fn(a,b,b){
+//			console.log(a,b)
+//		}
+//		fn(1,2,3)
+		
+//		function fn(a,b,c){
+//			a = 10;
+//			console.log(a,b,c);
+//			console.log(arguments);
+//		}
+//		fn(1,2,3)
+
+		function fn(n){
+			if(n==1){
+				return 1;
+			}else{
+				return fn(n-1) * n;
+			}
+		}
+		console.log(fn(4));
+		
+	</script>
+</html>

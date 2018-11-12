@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		1.1.数字字母混合的验证码
+//		var str = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+//		var a = "";
+//		for(var j=0;j<4;j++){
+//			var random = Math.round(Math.random()*(str.length-1));
+//			for(var i=0;i<str.length;i++){
+//				if(i == random){
+//					a += str[i]
+//				}
+//			}
+//		}
+//		console.log(a);
+		
+		
+//		1.2.数字字母混合的验证码
+//		48~57
+//		65~90
+//		97~122
+//		var num = "";
+//		var sAbc = "";
+//		var lAbc = "";
+//		var str = ""
+//		for(var i=0;i<40;i++){
+//			num += String.fromCharCode(random(48,57));
+//			sAbc += String.fromCharCode(random(65,90));
+//			lAbc += String.fromCharCode(random(97,122));
+//		}
+//		str = num+sAbc+lAbc;
+//		var a = "";
+//		for(var j=0;j<4;j++){
+//			var random = Math.round(Math.random()*(str.length-1));
+//			for(var i=0;i<str.length;i++){
+//				if(i == random){
+//					a += str[i]
+//				}
+//			}
+//		}
+//		console.log(a);
+//		function random(a,b){
+//			return Math.round(Math.random()*(a-b) + b);
+//		}
+		
+//		2.aabccd统计每个字符出现的次数，结果显示a 2，b 1，c 2，d 1，去掉重复的字符，使结果显示abcd
+		var str = "aabccddd";
+//		利用对象的特性
+//		var obj = {};
+//		obj.a = 1;
+//		console.log(obj.a)
+//		if(obj.a){
+//			obj.a++;
+//		}else{
+//			obj.a = 1
+//		}
+//		console.log(obj.a)
+		
+		var obj = {};
+		var newArr = "";
+		for(var i=0;i<str.length;i++){
+//			debugger;
+			if(obj[str[i]]){
+				obj[str[i]]++;
+			}else{
+				obj[str[i]] = 1;
+//				newArr.push(str[i]);
+				newArr += str[i];
+			}
+		}
+		console.log(newArr)
+		console.log(obj)
+	</script>
+</html>

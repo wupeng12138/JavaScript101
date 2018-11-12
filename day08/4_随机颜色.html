@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function randomColor(){
+			var r = Math.round(Math.random()*255).toString(16);
+			var g = Math.round(Math.random()*255).toString(16);
+			var b = Math.round(Math.random()*255).toString(16);
+			return "#"+zero(r)+zero(g)+zero(b);
+		}
+		
+		function zero(n){
+			if(n.length<2 || n<10 && n>=0){
+				return "0"+n;
+			}else{
+				return n;
+			}
+		}
+		for(var i=0;i<10;i++){
+			console.log(randomColor())
+		}
+	</script>
+</html>

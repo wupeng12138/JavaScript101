@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		字面量
+//		var str = "";
+//		构造函数
+//		var str2 = new String("");
+		
+		var str = "hello world";
+		
+//		console.log(str.length);
+//		console.log(str[8]);
+		
+//		for(var i=0;i<str.length;i++){
+//			console.log(str[i]);
+//		}
+		
+		console.log(str.indexOf("e",2));
+		console.log(str.charAt(6));
+		
+		console.log(str.substring(2,7))		//arr.slice()
+		console.log(str.slice(2,7))
+		console.log(str.split("o"));
+		console.log(str.replace("o","*"));
+//		var str = "2018-03-13";
+//		var msg = "何帆,王冬冬,胡遵严,李晓航,颛宇,夏传磊,沈克健,王颂昀,钱志强,奚文浩,王金潇,王慧慧,陈奕衡,吴鹏,肖振东,刘满冬,齐占立,曾诚,冯立涵,刘磊,施睿,李猛,钱明辉,张盼,洪贝雯,杜明鸣,李婷,刘帅,余磊,康成成,张磊";
+//		var arr = msg.split(",");
+//		var random = Math.round(Math.random()*(arr.length-1))
+//		for(var i=0;i<arr.length;i++){
+//			if(random == i){
+//				console.log(arr[i]);
+//			}
+//		}
+
+		var msg = ["特么的","你妹","fack"];
+		var str2 = "你特么的，会不会玩，你特么的，上来就送你妹，你妹的，fack you";
+		for(var j=0;j<msg.length;j++){
+			for(var i=0;i<str.length;i++){
+				str2 = str2.replace(msg[j],"**");
+			}
+		}
+		console.log(str2);
+	</script>
+
+</html>

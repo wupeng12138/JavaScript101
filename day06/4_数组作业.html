@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		定义一个30项的数组，数组的每一项要求是1－10的随机数，每间隔5个数字，求出前五个数的平均值
+		var arr = [];
+		for(var i=0;i<30;i++){
+			arr.push(Math.round(Math.random()*9));
+		}
+		console.log(arr)
+		function getFive(a){
+			var bigArr = [];
+			for(var i=0;i<a.length;i+=5){
+				bigArr.push(a.slice(i,i+5));
+			}
+			return bigArr;
+		}
+		
+		var newArr = getFive(arr);
+		
+		function ave(arr){
+			var sum = 0;
+			for(var i=0;i<arr.length;i++){
+				sum += arr[i];
+			}
+			return sum/arr.length;
+		}
+		
+		for(var i=0;i<newArr.length;i++){
+			console.log(ave(newArr[i]));
+		}
+		
+//		通过循环制造一个5 x 5的二维数组，这个数组中的数字由a，b之间随机而来，试编程
+		function five(a,b){
+			var bigArr = [];
+			for(var j=0;j<5;j++){
+				var arr = [];
+				for(var i=0;i<5;i++){
+					arr.push(Math.round(Math.random()*(b-a)+a));
+				}
+				bigArr.push(arr);
+			}
+			return bigArr;
+		}
+		
+		console.log(five(2,10))
+		
+//		0.2 * -8
+//		-1.6 + 10
+//		8.4
+//		8
+//
+//		0.2 * 8
+//		1.6 + 2
+//		3.6
+		
+	</script>
+</html>

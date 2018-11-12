@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#cont{width: 300px;height: 200px;border: solid 1px black;margin: 50px auto;position: relative;}
+			#cont p{height: 20px;width: 200px;border-radius: 6px;background: blue;margin: 0;position: absolute;top: 90px;text-align: center;}
+			#cont span{color: #fff;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<p id="bar"><span id="num"></span></p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var obar = document.getElementById("bar");
+		var onum = document.getElementById("num");
+		var width = 0;
+		var timer = null;
+		obar.style.width = width;
+		obar.style.backgroundColor = "red";
+		
+		
+		timer = setInterval(function(){
+			if(width>=300){
+				clearInterval(timer);
+				obar.style.width = "300px";
+				//当进度条完成之后，执行的程序，都在这
+				alert("加载完成");
+				
+			}else{
+				width += 2;
+				onum.innerHTML = parseInt(width/300*100) + "%";
+				obar.style.width = width + "px";
+			}
+		},30)
+		
+		
+		
+		
+	</script>
+</html>

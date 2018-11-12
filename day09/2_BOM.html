@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<input type="button" id="btn" value="百度一下"/>
+	</body>
+	<script type="text/javascript">
+//		BOM,浏览器对象模型,window
+		
+//		window
+//			window.history.back()
+			
+		var obtn = document.getElementById("btn")
+		var otxt = document.getElementById("txt")
+			
+		obtn.onclick = function(){
+			
+			window.location.href = "https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=93380420_hao_pg&wd="+otxt.value+"&oq=%25E4%25BA%258C%25E5%2593%2588&rsv_pq=d5cd4ba000001385&rsv_t=4390D4mw8G0yh86xZB6T0vbsQX3IYeZKiLrRZGCluWAgSBe713qAqOEnRH2nbXHX%2BRcu1RFP&rqlang=cn&rsv_enter=1&inputT=2493&rsv_sug3=11&rsv_sug1=7&rsv_sug7=100&rsv_sug2=0&rsv_sug4=5990";
+			
+		}
+		
+//		document.onclick = function(){
+////			alert()
+////			var name = window.prompt("请输入你的姓名");
+////			alert("欢迎"+name+"访问我们的网站")
+//			var a = window.confirm("你好");
+//			console.log(a)
+//		}
+
+//		function fn(){
+//			var a = confirm("请问你要不要冲钱");
+//			if(a){
+//				alert("欢迎尊贵的会员")
+//			}else{
+//				fn();
+//			}
+//		}
+//		fn();
+
+		document.onclick = function(){
+			open("1_day08复习.html")
+//			close();
+		}
+		
+		
+//		DOM  被    抽象    成一个   document  对象,这个   document对象   是从    BOM被抽象出来的window的子对象document   中抽象而来
+		
+		
+//		var obj = {
+//			name:{
+//				name1:"admin"
+//			},
+//			age:{}
+//		}
+//		
+//		console.log(obj.name.name1)
+	</script>
+</html>

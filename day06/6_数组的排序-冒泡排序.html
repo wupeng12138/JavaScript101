@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = [8,2,13,41,22,4];
+		console.log(arr);
+//		冒泡排序:将数组中的元素，两两比较，大的放后面
+		for(var i=0;i<arr.length-1;i++){
+			for(var j=0;j<arr.length-1-i;j++){
+				if(arr[j] > arr[j+1]){
+					var ls = 0;
+					ls = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = ls;
+				}
+			}
+		}
+		console.log(arr);
+	</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		每个内存单元中分为两个部分，栈和堆
+    
+//  栈在内存的最底部，类似于一个标记，名字，分类；稳定，不可更改
+//  
+//  堆数据，表示一组数据，可变更，数据量大，和栈一一对应
+//
+//  多个栈可以对应一个堆，反之不行
+//
+//  变量的声明，变量名存在了栈中
+//  变量的赋值，数据存在了堆中
+
+//		var a = b = c = 20;
+		
+//		栈堆的关系，可以时一对一，可以是多对一，不能是一对多
+		
+//		console.log(a,b,c)
+		
+//		var a = 20;
+//		var b = a;
+//		
+//		b = 10;
+//		
+//		console.log(a);
+//		console.log(b);
+
+
+
+		var obj1 = {
+			name:"admin"
+		}
+		var obj2 = obj1;
+		obj2.name = "liyang";
+		
+		console.log(obj1)
+		console.log(obj2)
+		
+		
+	</script>
+</html>

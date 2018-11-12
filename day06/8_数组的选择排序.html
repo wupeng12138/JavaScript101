@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		冒泡排序：将数组中的数据两两比较，大的放后面
+		var arr = [55,6,142,8,3,51,20];
+		console.log(arr);
+		
+//		for(var i=0;i<arr.length-1;i++){
+//			for(var j=0;j<arr.length-1-i;j++){
+//				if(arr[j] > arr[j+1]){
+//					var ls = 0;
+//					ls = arr[j];
+//					arr[j] = arr[j+1];
+//					arr[j+1] = ls;
+//				}
+//			}
+//		}
+		
+		for(var i=0;i<arr.length-1;i++){
+//			假设第一位最小
+			var min = arr[i];
+			var minIndex = i;
+			for(var j=i+1;j<arr.length;j++){
+				if(min>arr[j]){
+					min = arr[j];
+					minIndex = j;
+				}
+			}
+			arr[minIndex] = arr[i];
+			arr[i] = min;
+		}
+		
+		
+//		选择排序：将数组中的第一位逐个与后面的数据相比较，小的放前面
+		
+		
+		console.log(arr)
+		
+	</script>
+</html>

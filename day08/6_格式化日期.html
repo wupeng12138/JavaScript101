@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="year" />年
+		<input type="text" id="month" />月
+		<input type="text" id="date" />日
+		<input type="button" name="btn" id="btn" value="" />
+	</body>
+	<script src="../cont.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		console.log(formatDate());
+//		document.body.innerHTML = formatDate()
+		
+		var oy = document.getElementById("year");
+		var om = document.getElementById("month");
+		var od = document.getElementById("date");
+		var obtn = document.getElementById("btn");
+		
+		obtn.onclick = function(){
+			
+			if(isNaN(Number(oy.value)) || isNaN(Number(om.value)) || isNaN(Number(od.value)) || !oy.value || !om.value || !od.value){
+				alert("请好好输入日期");
+				return 0;
+			}else{
+				var y = parseInt(oy.value);
+				var m = parseInt(om.value)-1;
+				var d = parseInt(od.value);
+			}
+			
+			console.log(getDateNum([y,m,d]));
+			
+		}
+		
+		
+		//1.实现功能
+		
+		//2.处理异常
+		
+		//3.封装函数
+		
+		//4.区分职能
+			//4.1 函数中只留计算部分
+			//4.2 表单验证放在点击事件中（不封装进函数）
+		
+		//5.剪切到独立文件
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

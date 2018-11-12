@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		定义一个30项的数组，数组的每一项要求是1－10的随机数，每间隔5个数字，求出前五个数的平均值
+//		1.定义一个30项的数组
+		var arr = new Array(30);
+		
+//		2.数组的每一项要求是1－10的随机数
+		for(var i=0;i<arr.length;i++){
+			arr[i] = Math.round(Math.random()*9);
+		}
+//		3.每间隔5个数字，求出前五个数的平均值
+//		0~5		arr.slice(0,5)
+//		5~10	arr.slice(5,10)
+//		10~15	arr.slice(10,15)
+//		15~20	arr.slice(15,20)
+		
+		var bigArr = [];
+		for(var i=0;i<arr.length;i+=5){
+//			console.log(i,i+5);
+			bigArr.push(arr.slice(i,i+5));
+		}
+		
+		console.log(bigArr);
+		
+//		4.1.求出前五个数的平均值
+//		for(var i=0;i<bigArr.length;i++){
+////			console.log(bigArr[i]);
+//			var sum = 0;
+//			for(var j=0;j<bigArr[i].length;j++){
+//				sum = sum + bigArr[i][j];
+//			}
+//			console.log(sum/bigArr[i].length)
+//		}
+		
+//		4.2.求出前五个数的平均值
+		function ave(a){
+			var sum = 0;
+			for(var i=0;i<a.length;i++){
+				sum = sum + a[i];
+			}
+			return sum/a.length;
+		}
+		for(var i=0;i<bigArr.length;i++){
+			console.log(ave(bigArr[i]));
+		}
+		
+//		var b = [3,6,7,8,12]
+//		console.log(ave(b));
+		
+//		console.log(arr);
+	</script>
+</html>

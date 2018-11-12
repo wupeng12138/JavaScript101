@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		内置函数Date()
+		
+//		var d = new Date();
+//		
+//		console.log(d);
+//		
+//		var year = d.getFullYear();
+//		console.log(year)
+//		var month = d.getMonth();
+//		console.log(month)		//0~11
+//		var date = d.getDate();
+//		console.log(date);
+//		var day = d.getDay()
+//		console.log(day);
+//		
+//		var hours = d.getHours();
+//		console.log(hours)
+//		var minutes = d.getMinutes();
+//		console.log(minutes)
+//		var seconds = d.getSeconds();
+//		console.log(seconds)
+//		var mSeconds = d.getMilliseconds();
+//		console.log(mSeconds)
+//		
+//		var time = d.getTime();		//时间戳
+//		console.log(time);
+		
+//		function fn(n){
+//			if(n == 1 || n == 2){
+//				return 1;
+//			}else{
+//				return fn(n-1) + fn(n-2);
+//			}
+//		}
+//		
+//		var d1 = new Date();
+//		console.log(d1.getTime());
+//
+//		
+//		console.log(fn(40));
+//		
+//		var d2 = new Date();
+//		console.log(d2.getTime());
+		
+//		设置时间的两种方式:
+//			1.简单粗暴模式:直接在new Date中传递字符日期，用“.-/”分割
+//				var d = new Date("2008.08.08");
+//				console.log(d);
+//			2.日期对象的set系列方法
+		
+		var d = new Date();
+		console.log(d);
+		
+		d.setFullYear(2008);
+		var m = d.setMonth(11);		//正常接受0~11，超出部分向年进1
+		console.log(m)
+		var date = d.setDate(3);			//正常接受当月的天数，超出部分向月进1
+		console.log(date)
+//		d.setHours(17);
+//		d.setMinutes(50);
+//		d.setSeconds(47);
+//		d.setMilliseconds(888);
+//		
+//		console.log(d)
+//		
+//		var d2 = new Date()
+//		console.log(d2.getMonth())
+	</script>
+</html>

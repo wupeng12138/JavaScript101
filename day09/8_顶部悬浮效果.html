@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			h1:nth-child(6n){background: red;}
+			.box{overflow: hidden;}
+		</style>
+	</head>
+	<body>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<h1>这是标题1</h1>
+		<div class="box">hello world</div>
+	</body>
+	<script type="text/javascript">
+		
+		var obox = document.getElementsByClassName("box")[0];
+		obox.style.width = "1000px";
+		obox.style.height = "40px";
+		obox.style.margin = "auto";
+		obox.style.backgroundColor = "pink";
+		obox.style.position = "absolute";
+		obox.style.left = "0";
+		obox.style.right = "0";
+		obox.style.overflow = "hidden";
+		
+		obox.style.top = "0";
+		
+		onscroll = function(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			console.log(scrollTop);
+			
+			obox.style.top = scrollTop + "px";
+		}
+		
+	</script>
+</html>
