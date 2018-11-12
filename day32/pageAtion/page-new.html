@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>分页插件demo</title>
+    <link rel="stylesheet" href="style/pagination.css"/>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #list {
+            width: 1000px;
+            margin: 10px auto;
+        }
+
+        #list ul {
+            list-style: none;
+        }
+
+        #list ul li {
+            width: 240px;
+            height: 190px;
+            margin-left: 8px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            position: relative;
+            float: left;
+        }
+
+        #list ul li div.img {
+            padding: 4px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #cdcdcd;
+            border: 1px solid #cdcdcd;
+            margin-top: 10px;
+        }
+
+        #list ul li div img {
+            width: 230px;
+            height: 180px;
+        }
+
+        #list ul li div.detail {
+            margin: 5px;
+            color: #559999;
+            float: left;
+            width: 240px;
+        }
+
+        #list ul li span.price {
+            float: right;
+            color: #cc0033;;
+            margin-right: 8px;
+        }
+
+        #setPageDiv {
+            clear: left;
+            width: 1000px;
+            margin: 10px auto;
+        }
+
+        .shopping {
+            position: fixed;
+            height: 50px;
+            width: 200px;
+            right: 0px;
+            top: 15px;
+        }
+
+        .shopping-buy-btn {
+            border: 1px dotted #cdcdcd;
+            background-color: #cdcdcd;
+            color: #cc0033;
+            font-size: small;
+            border-radius: 3px;
+            box-shadow: 0 0 5px #cdcdcd;
+
+        }
+
+        .shopping span.showNum {
+            position: absolute;
+            left: 8px;
+            top: -8px;
+            background-color: #f69;
+            color: #FFFFFF;
+            font-size: large;
+            width: 20px;
+            height: 15px;
+            border-radius: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="setPageDiv">
+    <select id="setPage">
+        <option value="4">四条数据</option>
+        <option value="8">八条数据</option>
+        <option value="12">十二条数据</option>
+    </select>
+
+    <div id="Pagination" class="pagination"></div>
+</div>
+<div id="list">
+	<ul></ul>
+</div>
+
+
+
+</body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript">
+	$(function(){
+		function Page(options){
+			this.page = options.page;
+			this.list = options.list;
+			this.setpage = options.setPage;
+			this.num = 4;
+			
+			this.load();
+			this.changeNum();
+		}
+		Page.prototype.changeNum = function(){
+			var that = this;
+			this.setpage.click(function(){
+				that.num = $(this).val();
+				that.init()
+			})
+		}
+		Page.prototype.load = function(){
+			var that = this;
+			$.ajax({
+				type:"get",
+				url:"http://127.0.0.1:8020/1801/%E9%9A%8F%E5%A0%82%E4%BB%A3%E7%A0%81/day32/pageAtion/data/list.json",
+				async:true,
+				dataType:"json"
+			}).then(function(res){
+				that.res = res;
+				that.init();
+			})
+		}
+		Page.prototype.init = function(){
+			var that = this;
+			this.page.pagination(this.res.length,{
+				items_per_page:this.num,
+				num_display_entries:this.res.length,
+				prev_text:"上一页",
+				next_text:"下一页",
+				callback:function(index){
+					that.index = index;
+					that.display()
+				}
+			})
+		}
+		Page.prototype.display = function(){
+			var html = "";
+//			4
+//			0~4
+//			5~8
+//			8~12
+//			1	4			2			2		4		4
+//			i*this.num*this.index	this.index*this.num+this.num	i++
+//			0					4
+//			4					8
+//			8					16
+			for(var i=this.num*this.index; i<this.index*this.num+this.num; i++){
+				if(i<this.res.length){
+					html += `<li>
+								<div class="img">
+									<img src="${this.res[i].img}">
+								</div>
+								<div class="detail">${this.res[i].info}
+									<span class="price">特价${this.res[i].price}$</span>
+								</div>
+							</li>`
+				}
+			}
+			this.list.html(html);
+		}
+		
+		
+		
+		
+		
+		new Page({
+			page:$(".pagination"),
+			list:$("#list ul"),
+			setPage:$("#setPage")
+		});
+		
+		
+	})
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box3{width:100px;height: 100px;background: red;padding: 10px;margin-left: 20px;}
+		</style>
+	</head>
+	<body style="height: 3000px;">
+		<div class="box">
+			<div class="box1">
+				<div class="box2-1">
+					123123
+				</div>
+				<div class="box2-2"></div>
+				<div class="box2-3"></div>
+				<div class="box2-4"></div>
+				<div class="box2-5"></div>
+				<div class="box3" id="box3" title="这是一个div" liyang="123"></div>
+			</div>
+		</div>
+	</body>
+	<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		console.log($(".box2-1").parent())
+		console.log($(".box2-1").parents())
+		console.log($(".box2-1").parentsUntil("body"))
+		console.log($(".box2-1").parentsUntil($("body")))
+		console.log($(".box2-1").next())
+		console.log($(".box2-1").nextAll())
+		console.log($(".box2-1").nextUntil(".box2-4"))
+		console.log($(".box2-1").nextUntil($(".box2-4")))
+		
+		console.log($("#box3").attr("title"))
+		$("#box3").attr("title","这还是一个div")
+		$("#box3").attr("liyang-title","这还是一个div")
+		$("#box3").attr({
+			a:1,
+			b:2,
+			c:3
+		})
+		$("#box3").removeAttr("liyang")
+		
+		console.log($("#box3").css("background"))
+		$("#box3").css("background","blue")
+		$("#box3").css("border","solid 5px black")
+		$("#box3").css({
+			position:"absolute",
+			left:"100px",
+			top:"100px"
+		})
+		
+		var $arr = $(".box3").css(["width","height","border"])
+		$.each($arr,function(key,value) {
+			console.log(value)
+		});
+		
+		$(".box3").width(200)
+		console.log($(".box3").width())
+		console.log($(".box3").innerWidth())
+		console.log($(".box3").outerWidth())
+		
+		console.log($(".box3").offset())
+		console.log($(".box3").position())
+		
+//		document.onscroll = function(){
+//			console.log($("html,body").scrollTop())
+//		}
+		
+		document.onclick = function(){
+			$("html,body").scrollTop(1000)
+		}
+		
+		
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.validate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.validate.messages_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("form").validate();
+			})
+		</script>
+	</head>
+	<body>
+		<form>
+			用户名：<input type="text" name="" id="" value="" required="true" maxlength=18 minlength=6 /><br />
+			密码：<input type="text" name="" id="pass" value="" required="true" /><br />
+			确认密码：<input type="text" name="" id="" value="" equalTo="#pass" required="true" /><br />
+			手机号：<input type="text" name="" id="" value="" required="true" digits=true minlength=11 maxlength=11 /><br />
+			邮箱：<input type="text" name="" id="" value="" class="email" /><br />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+//		$("input").blur(function(){
+//			var span = $("<span>填写成功</span>");
+//			$(".valid").after(span);
+//		})
+	</script>
+</html>

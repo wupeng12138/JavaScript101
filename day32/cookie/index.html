@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$.cookie("name","liyang",{expires:6,path:"/"})
+		
+		console.log($.cookie("name"))
+		$.cookie("name",null,{path:"/"})
+	</script>
+</html>
